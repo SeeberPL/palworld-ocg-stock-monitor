@@ -3,12 +3,10 @@
 Palworld OCG restock/new-product monitor.
 
 Checks a list of sites (configured in sites_config.json) for Palworld OCG
-products, compares against last-known state (state.json), and notifies you
-(SMS via Twilio, and/or email) when something new appears or a sold-out
-item comes back in stock. The two channels are independent - a failure in
-one (e.g. a Twilio account issue) doesn't block the other, and the run only
-fails (which keeps state.json from advancing, so you don't lose the alert)
-if BOTH channels fail.
+products, compares against last-known state (state.json), and emails you
+when something new appears or a sold-out item comes back in stock. If the
+email fails to send, the run fails too (which keeps state.json from
+advancing), so you don't lose the alert.
 
 Run this once per invocation (e.g. via cron at :00 and :30, or via a
 scheduled GitHub Actions workflow). It is NOT a long-running daemon.
@@ -227,19 +225,6 @@ PARSERS = {
 # Notification
 # ---------------------------------------------------------------------------
 
-def send_sms(message):
-    from twilio.rest import Client
-
-    sid = os.environ["TWILIO_ACCOUNT_SID"]
-    token = os.environ["TWILIO_AUTH_TOKEN"]
-    from_number = os.environ["TWILIO_FROM_NUMBER"]
-    to_number = os.environ["TWILIO_TO_NUMBER"]
-
-    client = Client(sid, token)
-    # SMS is capped at 1600 chars per message (Twilio auto-splits), keep it short anyway
-    client.messages.create(body=message[:1500], from_=from_number, to=to_number)
-
-
 def send_email(subject, body):
     from_addr = os.environ["EMAIL_FROM"]
     app_password = os.environ["EMAIL_APP_PASSWORD"]
@@ -317,29 +302,15 @@ def main():
         # because we've never tracked it before - not because it actually
         # just restocked. Establish the baseline silently; only alert on
         # genuine changes from here on.
-        print(f"First run: recorded {len(new_state)} product(s) as baseline. No texts sent.")
+        print(f"First run: recorded {len(new_state)} product(s) as baseline. No email sent.")
     elif alerts:
         message = "Palworld OCG alert:\n\n" + "\n\n".join(alerts)
         print(message)
-
-        notified = False
-        try:
-            send_sms(message)
-            notified = True
-        except Exception as e:
-            print(f"[ERROR] SMS send failed: {e}", file=sys.stderr)
-
-        try:
-            send_email("Palworld OCG Alert", message)
-            notified = True
-        except Exception as e:
-            print(f"[ERROR] Email send failed: {e}", file=sys.stderr)
-
-        if not notified:
-            # Both channels failed - raise so this run exits non-zero and
-            # state.json doesn't get committed. Next run will see the same
-            # unchanged state and retry the alert instead of losing it.
-            raise RuntimeError("Both SMS and email notifications failed - see errors above")
+        # If this fails, let the exception propagate so the run exits
+        # non-zero and state.json doesn't get committed - next run will
+        # see the same unchanged state and retry the alert instead of
+        # losing it.
+        send_email("Palworld OCG Alert", message)
     else:
         print("No changes this run.")
 

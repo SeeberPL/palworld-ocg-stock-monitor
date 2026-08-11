@@ -1,7 +1,7 @@
 # Palworld OCG Monitor
 
 Checks your listed sites every 30 min for new/restocked Palworld OCG
-products and texts you when something shows up.
+products and emails you when something shows up.
 
 ## 1. Your sites (already filled in)
 
@@ -52,22 +52,11 @@ Two site "types" are supported:
 Set `"enabled": true` on each site once configured. Send me the actual 8
 URLs and I'll write the real selectors/configs for you instead of guessing.
 
-## 2. Notifications (SMS + email)
+## 2. Notifications (email via Gmail)
 
-Both channels are independent - if one fails (e.g. a Twilio account
-issue), the other still goes out and the run still succeeds. It only
-fails (which is what keeps `state.json` from advancing, so you don't
-lose an alert) if **both** fail.
-
-### SMS via Twilio
-
-1. Create a Twilio account, buy a phone number (~$1/mo).
-2. Grab your Account SID + Auth Token from the Twilio console.
-3. Note: trial (unfunded) Twilio accounts can only send Twilio's own
-   predefined message templates, not custom text — you'll need to fund
-   the account before SMS alerts here will actually go through.
-
-### Email via Gmail
+If the email fails to send, the run fails too (which is what keeps
+`state.json` from advancing), so you don't lose an alert to a delivery
+hiccup - it'll just retry next run.
 
 1. Use any Gmail account (a throwaway one is fine) as the sender.
 2. Generate a Gmail **App Password** for it: Google Account → Security →
@@ -75,17 +64,11 @@ lose an alert) if **both** fail.
    minutes, no review/approval wait.
 3. `EMAIL_TO` is just the destination address you want alerts sent to.
 
-### Setting the values
-
 Add these as GitHub Actions **repo secrets** (Settings → Secrets and
 variables → Actions) if using the GitHub Actions route, or into a local
 `.env` file for the PC/VM route:
 
 ```
-TWILIO_ACCOUNT_SID=
-TWILIO_AUTH_TOKEN=
-TWILIO_FROM_NUMBER=
-TWILIO_TO_NUMBER=
 EMAIL_FROM=
 EMAIL_APP_PASSWORD=
 EMAIL_TO=
@@ -114,7 +97,7 @@ not fine if it's a laptop that sleeps.
 ### Option B — GitHub Actions (free, no server to maintain)
 
 1. Push this folder to a new GitHub repo (can be private).
-2. Add the 4 Twilio values as repo secrets (see above).
+2. Add the 3 email values as repo secrets (see above).
 3. That's it — `.github/workflows/monitor.yml` already runs it on the
    :00/:30 schedule and commits `state.json` back to the repo so it
    remembers what it's already alerted you about.
@@ -130,5 +113,7 @@ Free minutes comfortably cover a 30-min-interval job.
 - The `html` parser only sees what's in the initial page load. JS-rendered
   storefronts need Playwright instead — say the word if one of your 8
   sites needs that and I'll add it.
-- `state.json` is how it avoids double-texting you — don't delete it
-  unless you want a fresh "everything looks new" alert on the next run.
+- `state.json` is how it avoids double-emailing you — don't delete it
+  unless you want a fresh (silent) baseline; deleting it does NOT send
+  an "everything looks new" email, since the first run after a reset is
+  intentionally silent.
