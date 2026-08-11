@@ -1,0 +1,55 @@
+{
+  "keyword": "palworld",
+  "sites": [
+    {
+      "name": "Flipside Gaming",
+      "type": "shopify",
+      "base_url": "https://flipsidegaming.com",
+      "enabled": true
+    },
+    {
+      "name": "Topspot Cards",
+      "type": "shopify",
+      "base_url": "https://topspot.cards",
+      "enabled": true
+    },
+    {
+      "name": "VGMX",
+      "type": "shopify",
+      "base_url": "https://vgmx.com",
+      "enabled": true
+    },
+    {
+      "name": "Lumius Inc",
+      "type": "shopify",
+      "base_url": "https://lumiusinc.com",
+      "enabled": true
+    },
+    {
+      "name": "Gamers Getaway KC",
+      "type": "shopify",
+      "base_url": "https://gamersgetawaykc.com",
+      "enabled": true
+    },
+    {
+      "name": "Moonlight Collectibles",
+      "type": "shopify",
+      "base_url": "https://moonlightsls.com",
+      "enabled": true
+    },
+    {
+      "name": "Game Nerdz",
+      "type": "html",
+      "url": "https://www.gamenerdz.com/palworld/",
+      "enabled": true,
+      "selectors": {
+        "product_container": ".card",
+        "name": ".card-title",
+        "price": ".price",
+        "stock_indicator": ".card-figure__stock-msg",
+        "in_stock_text": "in stock"
+      },
+      "_note": "BigCommerce (Stencil theme) site - these selectors are best-guess and UNVERIFIED. Test this one specifically before relying on it; see README."
+    }
+  ]
+}
