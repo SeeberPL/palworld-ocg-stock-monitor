@@ -52,6 +52,22 @@ def save_json(path, data):
 # Site parsers — each returns a list of dicts: {id, name, price, in_stock, url}
 # ---------------------------------------------------------------------------
 
+def variant_is_available(variant):
+    """
+    Unlike the /products.json collection endpoint, the per-product
+    /products/{handle}.json endpoint doesn't include an `available`
+    field on variants - so availability has to be derived from
+    inventory_management/policy/quantity the same way Shopify itself
+    computes it.
+    """
+    if variant.get("inventory_management") != "shopify":
+        return True  # inventory not tracked -> always purchasable
+    if variant.get("inventory_policy") == "continue":
+        return True  # overselling allowed -> purchasable even at 0
+    qty = variant.get("inventory_quantity")
+    return bool(qty and qty > 0)
+
+
 def parse_shopify(site, keyword):
     """
     Works for ANY Shopify-based storefront (very common for TCG shops).
@@ -90,7 +106,7 @@ def parse_shopify(site, keyword):
                 "id": f"{p['id']}-{variant['id']}",
                 "name": f"{p['title']} ({variant.get('title','Default')})".replace(" (Default Title)", ""),
                 "price": variant.get("price"),
-                "in_stock": bool(variant.get("available")),
+                "in_stock": variant_is_available(variant),
                 "url": f"{base}/products/{p.get('handle')}",
             })
     return products
