@@ -39,17 +39,10 @@
     },
     {
       "name": "Game Nerdz",
-      "type": "html",
+      "type": "bigcommerce_bodl",
       "url": "https://www.gamenerdz.com/palworld/",
       "enabled": true,
-      "selectors": {
-        "product_container": ".card",
-        "name": ".card-title",
-        "price": ".price",
-        "stock_indicator": ".card-figure__stock-msg",
-        "in_stock_text": "in stock"
-      },
-      "_note": "BigCommerce (Stencil theme) site - these selectors are best-guess and UNVERIFIED. Test this one specifically before relying on it; see README."
+      "_note": "BigCommerce (Stencil) site. Product grid is JS-rendered so we read the embedded analytics data blob instead of scraping selectors; see parse_bigcommerce_bodl() in monitor.py. Alerts link to this category page rather than the exact product page."
     }
   ]
 }

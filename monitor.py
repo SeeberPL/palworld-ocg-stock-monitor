@@ -10,6 +10,7 @@ Run this once per invocation (e.g. via cron at :00 and :30, or via a
 scheduled GitHub Actions workflow). It is NOT a long-running daemon.
 """
 
+import base64
 import json
 import os
 import re
@@ -54,35 +55,44 @@ def save_json(path, data):
 def parse_shopify(site, keyword):
     """
     Works for ANY Shopify-based storefront (very common for TCG shops).
-    Shopify publicly exposes a JSON product feed at /products.json — no
-    scraping/selectors needed, just filter by keyword.
+    Uses Shopify's public predictive-search endpoint to find products
+    matching `keyword` server-side (no need to page through the entire
+    catalog), then fetches each match's full product JSON to get
+    per-variant price/stock detail (the search endpoint itself doesn't
+    include variants).
     """
     products = []
-    page = 1
     base = site["base_url"].rstrip("/")
-    while True:
-        url = f"{base}/products.json?limit=250&page={page}"
-        r = requests.get(url, headers=HEADERS, timeout=15)
-        if r.status_code != 200:
-            break
-        data = r.json().get("products", [])
-        if not data:
-            break
-        for p in data:
-            haystack = f"{p.get('title','')} {p.get('product_type','')} {' '.join(p.get('tags',[]))}".lower()
-            if keyword.lower() not in haystack:
-                continue
-            for variant in p.get("variants", []):
-                products.append({
-                    "id": f"{p['id']}-{variant['id']}",
-                    "name": f"{p['title']} ({variant.get('title','Default')})".replace(" (Default Title)", ""),
-                    "price": variant.get("price"),
-                    "in_stock": bool(variant.get("available")),
-                    "url": f"{base}/products/{p.get('handle')}",
-                })
-        page += 1
-        if page > 20:  # safety cap
-            break
+
+    search_url = f"{base}/search/suggest.json"
+    params = {
+        "q": keyword,
+        "resources[type]": "product",
+        "resources[limit]": 50,
+        "resources[options][unavailable_products]": "show",
+    }
+    r = requests.get(search_url, headers=HEADERS, params=params, timeout=15)
+    r.raise_for_status()
+    matches = r.json().get("resources", {}).get("results", {}).get("products", [])
+
+    for m in matches:
+        handle = m.get("handle")
+        if not handle:
+            continue
+        pr = requests.get(f"{base}/products/{handle}.json", headers=HEADERS, timeout=15)
+        if pr.status_code != 200:
+            continue
+        p = pr.json().get("product")
+        if not p:
+            continue
+        for variant in p.get("variants", []):
+            products.append({
+                "id": f"{p['id']}-{variant['id']}",
+                "name": f"{p['title']} ({variant.get('title','Default')})".replace(" (Default Title)", ""),
+                "price": variant.get("price"),
+                "in_stock": bool(variant.get("available")),
+                "url": f"{base}/products/{p.get('handle')}",
+            })
     return products
 
 
@@ -136,9 +146,58 @@ def parse_html(site, keyword):
     return products
 
 
+def parse_bigcommerce_bodl(site, keyword):
+    """
+    For BigCommerce (Stencil) storefronts, like Game Nerdz, whose product
+    grid is rendered client-side by a third-party search widget - a plain
+    GET of the category page returns an "empty" grid, nothing to select.
+
+    However, BigCommerce's own analytics data layer ("BODL") embeds a
+    base64-encoded JSON blob directly in the server-rendered page (a
+    `bodl_v1_product_category_viewed` tracking event), which lists every
+    product on the page with accurate name/price/stock - so we read that
+    instead of the (JS-only) visible grid.
+
+    `quantity` in that blob is the real inventory count: 0 means sold out,
+    None means untracked/unlimited inventory (e.g. an open preorder), and
+    a positive number means that many are in stock. There's no per-product
+    URL in this data (real slugs are only generated client-side), so every
+    alert links back to the category page itself.
+    """
+    r = requests.get(site["url"], headers=HEADERS, timeout=15)
+    r.raise_for_status()
+
+    match = re.search(r'decodeBase64\("([^"]+)"\)', r.text)
+    if not match:
+        raise ValueError("BODL analytics blob not found in page - site markup may have changed")
+    data = json.loads(base64.b64decode(match.group(1)))
+
+    line_items = []
+    for event in data.get("events", []):
+        for payload in event.values():
+            if "line_items" in payload:
+                line_items.extend(payload["line_items"])
+
+    products = []
+    for item in line_items:
+        name = item.get("product_name", "")
+        if keyword.lower() not in name.lower():
+            continue
+        quantity = item.get("quantity")
+        products.append({
+            "id": item.get("sku") or item.get("product_id"),
+            "name": name,
+            "price": item.get("purchase_price"),
+            "in_stock": quantity is None or quantity > 0,
+            "url": site["url"],
+        })
+    return products
+
+
 PARSERS = {
     "shopify": parse_shopify,
     "html": parse_html,
+    "bigcommerce_bodl": parse_bigcommerce_bodl,
 }
 
 
