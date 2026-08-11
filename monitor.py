@@ -56,14 +56,22 @@ def save_json(path, data):
 # Site parsers — each returns a list of dicts: {id, name, price, in_stock, url}
 # ---------------------------------------------------------------------------
 
-def variant_is_available(variant):
+def variant_is_available(variant, product_available):
     """
     Unlike the /products.json collection endpoint, the per-product
-    /products/{handle}.json endpoint doesn't include an `available`
-    field on variants - so availability has to be derived from
-    inventory_management/policy/quantity the same way Shopify itself
-    computes it.
+    /products/{handle}.json endpoint doesn't include an `available` field
+    on variants. Some stores still expose real inventory_management/
+    policy/quantity there, which lets us compute availability precisely
+    the way Shopify itself does. Many stores hide those fields entirely
+    (a common merchant privacy setting) - in that case there's no signal
+    at all in this response, so fall back to the product-level `available`
+    flag already returned by the search endpoint (accurate, just not
+    variant-granular - fine here since these products are almost always
+    single-variant).
     """
+    has_inventory_data = "inventory_quantity" in variant or "inventory_policy" in variant
+    if not has_inventory_data:
+        return bool(product_available)
     if variant.get("inventory_management") != "shopify":
         return True  # inventory not tracked -> always purchasable
     if variant.get("inventory_policy") == "continue":
@@ -110,7 +118,7 @@ def parse_shopify(site, keyword):
                 "id": f"{p['id']}-{variant['id']}",
                 "name": f"{p['title']} ({variant.get('title','Default')})".replace(" (Default Title)", ""),
                 "price": variant.get("price"),
-                "in_stock": variant_is_available(variant),
+                "in_stock": variant_is_available(variant, m.get("available")),
                 "url": f"{base}/products/{p.get('handle')}",
             })
     return products
