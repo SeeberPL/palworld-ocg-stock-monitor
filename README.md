@@ -1,7 +1,8 @@
 # Palworld OCG Monitor
 
 Checks your listed sites every 30 min for new/restocked Palworld OCG
-products and emails you when something shows up.
+products and sends you a push notification (ntfy) and an email when
+something shows up.
 
 ## 1. Your sites (already filled in)
 
@@ -52,11 +53,23 @@ Two site "types" are supported:
 Set `"enabled": true` on each site once configured. Send me the actual 8
 URLs and I'll write the real selectors/configs for you instead of guessing.
 
-## 2. Notifications (email via Gmail)
+## 2. Notifications (ntfy push + email)
 
-If the email fails to send, the run fails too (which is what keeps
-`state.json` from advancing), so you don't lose an alert to a delivery
-hiccup - it'll just retry next run.
+Both channels are independent - if one fails, the other still goes out
+and the run still succeeds. It only fails (which is what keeps
+`state.json` from advancing, so you don't lose an alert) if **both**
+fail.
+
+### Push notifications via ntfy
+
+1. Install the [ntfy app](https://ntfy.sh/) (iOS/Android) or use the web app.
+2. Subscribe to your topic (ask me for it, or generate your own — see
+   below). ntfy topics are public and unauthenticated: anyone who knows
+   the exact topic name can read or post to it, so it needs to be an
+   unguessable random string, not something like `palworld-stock`.
+3. `NTFY_TOPIC` is just that topic name — no account or API key needed.
+
+### Email via Gmail
 
 1. Use any Gmail account (a throwaway one is fine) as the sender.
 2. Generate a Gmail **App Password** for it: Google Account → Security →
@@ -64,11 +77,14 @@ hiccup - it'll just retry next run.
    minutes, no review/approval wait.
 3. `EMAIL_TO` is just the destination address you want alerts sent to.
 
+### Setting the values
+
 Add these as GitHub Actions **repo secrets** (Settings → Secrets and
 variables → Actions) if using the GitHub Actions route, or into a local
 `.env` file for the PC/VM route:
 
 ```
+NTFY_TOPIC=
 EMAIL_FROM=
 EMAIL_APP_PASSWORD=
 EMAIL_TO=
@@ -97,7 +113,7 @@ not fine if it's a laptop that sleeps.
 ### Option B — GitHub Actions (free, no server to maintain)
 
 1. Push this folder to a new GitHub repo (can be private).
-2. Add the 3 email values as repo secrets (see above).
+2. Add the 4 notification values as repo secrets (see above).
 3. That's it — `.github/workflows/monitor.yml` already runs it on the
    :00/:30 schedule and commits `state.json` back to the repo so it
    remembers what it's already alerted you about.
