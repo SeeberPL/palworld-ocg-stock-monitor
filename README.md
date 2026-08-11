@@ -15,20 +15,16 @@ products and texts you when something shows up.
 | Lumius Inc | Shopify | Ready |
 | Gamers Getaway KC | Shopify | Ready |
 | Moonlight Collectibles | Shopify | Ready |
-| Game Nerdz | BigCommerce (html) | **Selectors unverified — test first** |
+| Game Nerdz | BigCommerce (`bigcommerce_bodl`) | Ready |
 
-6 of the 7 turned out to run on Shopify, so they use the reliable
-`products.json` approach with no scraping guesswork. Game Nerdz runs on
-BigCommerce, which doesn't expose an equivalent public feed, so it's
-using the generic HTML scraper pointed at their
-[Palworld category page](https://www.gamenerdz.com/palworld/) with my
-best guess at the CSS selectors (`.card`, `.card-title`, `.price`, etc. —
-common in BigCommerce's Stencil theme). I can't verify these without
-actually rendering the page myself, so **test this one first**: run
-`python monitor.py` once and check whether Game Nerdz Palworld products
-show up correctly. If it comes back empty, open the page's source in
-your browser, find the real class names, and update the `selectors`
-block for Game Nerdz in `sites_config.json`.
+6 of the 7 run on Shopify, so they use the search-based `products.json`
+approach with no scraping guesswork. Game Nerdz runs on BigCommerce with
+a JS-rendered product grid (nothing usable in the plain HTML), so it
+instead reads the analytics data blob BigCommerce embeds in the
+server-rendered page - see `parse_bigcommerce_bodl()` in `monitor.py`.
+One tradeoff: there's no per-product URL in that data (real product
+slugs are only generated client-side), so Game Nerdz alerts link back to
+the category page rather than the exact product.
 
 I didn't add TCGplayer, Amazon, or the official Palworld TCG site —
 TCGplayer requires a paid API/approval process, Amazon actively blocks
@@ -56,13 +52,44 @@ Two site "types" are supported:
 Set `"enabled": true` on each site once configured. Send me the actual 8
 URLs and I'll write the real selectors/configs for you instead of guessing.
 
-## 2. Twilio (for SMS)
+## 2. Notifications (SMS + email)
 
-1. Create a free Twilio account, buy a phone number (~$1/mo).
+Both channels are independent - if one fails (e.g. a Twilio account
+issue), the other still goes out and the run still succeeds. It only
+fails (which is what keeps `state.json` from advancing, so you don't
+lose an alert) if **both** fail.
+
+### SMS via Twilio
+
+1. Create a Twilio account, buy a phone number (~$1/mo).
 2. Grab your Account SID + Auth Token from the Twilio console.
-3. Fill in `.env.example` and rename it `.env` (for local/VM use), or add
-   the same 4 values as GitHub Actions **repo secrets** (Settings → Secrets
-   and variables → Actions) if using the GitHub Actions route.
+3. Note: trial (unfunded) Twilio accounts can only send Twilio's own
+   predefined message templates, not custom text — you'll need to fund
+   the account before SMS alerts here will actually go through.
+
+### Email via Gmail
+
+1. Use any Gmail account (a throwaway one is fine) as the sender.
+2. Generate a Gmail **App Password** for it: Google Account → Security →
+   2-Step Verification (must be enabled) → App passwords. Takes a couple
+   minutes, no review/approval wait.
+3. `EMAIL_TO` is just the destination address you want alerts sent to.
+
+### Setting the values
+
+Add these as GitHub Actions **repo secrets** (Settings → Secrets and
+variables → Actions) if using the GitHub Actions route, or into a local
+`.env` file for the PC/VM route:
+
+```
+TWILIO_ACCOUNT_SID=
+TWILIO_AUTH_TOKEN=
+TWILIO_FROM_NUMBER=
+TWILIO_TO_NUMBER=
+EMAIL_FROM=
+EMAIL_APP_PASSWORD=
+EMAIL_TO=
+```
 
 ## 3. Choose where it runs
 

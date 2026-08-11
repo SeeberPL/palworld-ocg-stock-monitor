@@ -3,8 +3,12 @@
 Palworld OCG restock/new-product monitor.
 
 Checks a list of sites (configured in sites_config.json) for Palworld OCG
-products, compares against last-known state (state.json), and sends an SMS
-via Twilio when something new appears or a sold-out item comes back in stock.
+products, compares against last-known state (state.json), and notifies you
+(SMS via Twilio, and/or email) when something new appears or a sold-out
+item comes back in stock. The two channels are independent - a failure in
+one (e.g. a Twilio account issue) doesn't block the other, and the run only
+fails (which keeps state.json from advancing, so you don't lose the alert)
+if BOTH channels fail.
 
 Run this once per invocation (e.g. via cron at :00 and :30, or via a
 scheduled GitHub Actions workflow). It is NOT a long-running daemon.
@@ -14,7 +18,9 @@ import base64
 import json
 import os
 import re
+import smtplib
 import sys
+from email.message import EmailMessage
 from pathlib import Path
 
 import requests
@@ -234,6 +240,23 @@ def send_sms(message):
     client.messages.create(body=message[:1500], from_=from_number, to=to_number)
 
 
+def send_email(subject, body):
+    from_addr = os.environ["EMAIL_FROM"]
+    app_password = os.environ["EMAIL_APP_PASSWORD"]
+    to_addr = os.environ["EMAIL_TO"]
+
+    msg = EmailMessage()
+    msg["Subject"] = subject
+    msg["From"] = from_addr
+    msg["To"] = to_addr
+    msg.set_content(body)
+
+    with smtplib.SMTP("smtp.gmail.com", 587, timeout=15) as smtp:
+        smtp.starttls()
+        smtp.login(from_addr, app_password)
+        smtp.send_message(msg)
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -298,7 +321,25 @@ def main():
     elif alerts:
         message = "Palworld OCG alert:\n\n" + "\n\n".join(alerts)
         print(message)
-        send_sms(message)
+
+        notified = False
+        try:
+            send_sms(message)
+            notified = True
+        except Exception as e:
+            print(f"[ERROR] SMS send failed: {e}", file=sys.stderr)
+
+        try:
+            send_email("Palworld OCG Alert", message)
+            notified = True
+        except Exception as e:
+            print(f"[ERROR] Email send failed: {e}", file=sys.stderr)
+
+        if not notified:
+            # Both channels failed - raise so this run exits non-zero and
+            # state.json doesn't get committed. Next run will see the same
+            # unchanged state and retry the alert instead of losing it.
+            raise RuntimeError("Both SMS and email notifications failed - see errors above")
     else:
         print("No changes this run.")
 
