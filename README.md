@@ -6,7 +6,7 @@ something shows up.
 
 ## 1. Your sites (already filled in)
 
-`sites_config.json` is configured for your 7 sites:
+`sites_config.json` is configured for 14 sites:
 
 | Site | Type | Status |
 |---|---|---|
@@ -17,8 +17,15 @@ something shows up.
 | Gamers Getaway KC | Shopify | Ready |
 | Moonlight Collectibles | Shopify | Ready |
 | Game Nerdz | BigCommerce (`bigcommerce_bodl`) | Ready |
+| Gamers Guild AZ | Shopify | Ready |
+| Paladin Cards | Shopify | Ready |
+| Lazarus Games | Shopify | Ready |
+| The Card Vault | Shopify | Ready |
+| Kongs Cards | Shopify | Ready |
+| TCG Guy Hub | Wix (`html`) | Ready |
+| Miniature Market | Shopware (`html`) | Ready |
 
-6 of the 7 run on Shopify, so they use the search-based `products.json`
+11 of the 14 run on Shopify, so they use the search-based `products.json`
 approach with no scraping guesswork. Game Nerdz runs on BigCommerce with
 a JS-rendered product grid (nothing usable in the plain HTML), so it
 instead reads the analytics data blob BigCommerce embeds in the
@@ -26,6 +33,18 @@ server-rendered page - see `parse_bigcommerce_bodl()` in `monitor.py`.
 One tradeoff: there's no per-product URL in that data (real product
 slugs are only generated client-side), so Game Nerdz alerts link back to
 the category page rather than the exact product.
+
+TCG Guy Hub (Wix) and Miniature Market (Shopware) both server-render
+their category pages, so the generic `html` scraper works directly
+against each platform's own markup. Miniature Market's URL is
+pre-filtered to their "Palworld" brand property so it doesn't have to
+scan their whole "Other CCGs" catalog.
+
+**Not added:** `magicmadhouse.co.uk` (BigCommerce). Unlike Game Nerdz,
+its product grid is rendered entirely by a third-party search widget
+(Klevu) with no accessible plain-HTTP data source - no BODL blob, no
+server-rendered product markup. Adding it would require either a
+headless browser or reverse-engineering Klevu's private search API.
 
 I didn't add TCGplayer, Amazon, or the official Palworld TCG site —
 TCGplayer requires a paid API/approval process, Amazon actively blocks
@@ -50,8 +69,8 @@ Two site "types" are supported:
   is nearly empty until JS runs, this approach won't work and the site
   needs a different tool — Playwright — let me know if you hit this).
 
-Set `"enabled": true` on each site once configured. Send me the actual 8
-URLs and I'll write the real selectors/configs for you instead of guessing.
+Set `"enabled": true` on each site once configured. Send me a site's URL
+and I'll figure out the right approach and write the config for you.
 
 ## 2. Notifications (ntfy push + email)
 

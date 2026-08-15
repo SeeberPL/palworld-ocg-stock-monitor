@@ -43,6 +43,63 @@
       "url": "https://www.gamenerdz.com/palworld/",
       "enabled": true,
       "_note": "BigCommerce (Stencil) site. Product grid is JS-rendered so we read the embedded analytics data blob instead of scraping selectors; see parse_bigcommerce_bodl() in monitor.py. Alerts link to this category page rather than the exact product page."
+    },
+    {
+      "name": "Gamers Guild AZ",
+      "type": "shopify",
+      "base_url": "https://gamersguildaz.com",
+      "enabled": true
+    },
+    {
+      "name": "Paladin Cards",
+      "type": "shopify",
+      "base_url": "https://paladincards20.com",
+      "enabled": true
+    },
+    {
+      "name": "Lazarus Games",
+      "type": "shopify",
+      "base_url": "https://lazarus-games.com",
+      "enabled": true
+    },
+    {
+      "name": "The Card Vault",
+      "type": "shopify",
+      "base_url": "https://thecardvault.co.uk",
+      "enabled": true
+    },
+    {
+      "name": "Kongs Cards",
+      "type": "shopify",
+      "base_url": "https://kongscards.co.uk",
+      "enabled": true
+    },
+    {
+      "name": "TCG Guy Hub",
+      "type": "html",
+      "url": "https://www.tcgguyhub.com/category/palworld-ocg",
+      "enabled": true,
+      "selectors": {
+        "product_container": "[data-hook=\"product-item-root\"]",
+        "name": "[data-hook=\"product-item-name\"]",
+        "price": "[data-hook=\"product-item-price-to-pay\"]",
+        "stock_indicator": "[data-hook=\"product-item-add-to-cart-button\"]",
+        "in_stock_text": "add to cart"
+      },
+      "_note": "Wix Stores site. Category page is server-rendered so the generic HTML scraper works directly against Wix's own data-hook attributes."
+    },
+    {
+      "name": "Miniature Market",
+      "type": "html",
+      "url": "https://www.miniaturemarket.com/trading-card-games/other-ccgs.html?properties=019ff1fc6de47f8783214c56c27d8ea5",
+      "enabled": true,
+      "selectors": {
+        "product_container": ".product-box",
+        "name": ".product-name",
+        "price": ".product-price",
+        "stock_indicator": ".stock-notify-wrapper"
+      },
+      "_note": "Shopware site. The URL is pre-filtered to their 'Palworld' brand property so we don't have to scan their whole 'Other CCGs' catalog. Stock detection is absence-based: a .stock-notify-wrapper element only renders when the item is sold out, so the default in_stock_text ('in stock', which won't match its 'Out of stock' text) correctly reads presence-of-element as sold out and absence as in stock."
     }
   ]
 }
