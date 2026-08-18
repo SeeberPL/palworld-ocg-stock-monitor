@@ -121,6 +121,16 @@ def parse_shopify(site, keyword):
         handle = m.get("handle")
         if not handle:
             continue
+
+        # Shopify's predictive search does fuzzy/relevance matching and can
+        # return results with no real textual connection to the query (seen
+        # in practice: an RPG game-master kit "matching" a "palworld"
+        # search). Re-check the keyword actually appears somewhere on the
+        # product before trusting the match.
+        haystack = f"{m.get('title','')} {m.get('type','')} {' '.join(m.get('tags',[]))}".lower()
+        if keyword.lower() not in haystack:
+            continue
+
         pr = requests.get(f"{base}/products/{handle}.json", headers=HEADERS, timeout=15)
         if pr.status_code != 200:
             continue
