@@ -54,6 +54,18 @@ def save_json(path, data):
         json.dump(data, f, indent=2, sort_keys=True)
 
 
+def parse_price(value):
+    """Best-effort numeric parse for price comparison - prices come from
+    different parsers as strings ("164.99") or numbers (19.97), and are
+    sometimes None (price unknown)."""
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
 # ---------------------------------------------------------------------------
 # Site parsers — each returns a list of dicts: {id, name, price, in_stock, url}
 # ---------------------------------------------------------------------------
@@ -304,9 +316,33 @@ def main():
             is_new_listing = prev is None
             restocked = prev is not None and (not prev["in_stock"]) and p["in_stock"]
 
-            if p["in_stock"] and (is_new_listing or restocked):
-                tag = "NEW" if is_new_listing else "RESTOCK"
-                price_str = f"${p['price']}" if p["price"] else "price unknown"
+            # Only counts as a "price drop" when it was already in stock and
+            # still is - an item coming back in stock at a lower price than
+            # it had while sold out is just a restock, not a separate event.
+            prev_price = parse_price(prev["price"]) if prev else None
+            curr_price = parse_price(p["price"])
+            price_dropped = (
+                prev is not None
+                and prev["in_stock"]
+                and p["in_stock"]
+                and prev_price is not None
+                and curr_price is not None
+                and curr_price < prev_price
+            )
+
+            if p["in_stock"] and (is_new_listing or restocked or price_dropped):
+                if is_new_listing:
+                    tag = "NEW"
+                elif restocked:
+                    tag = "RESTOCK"
+                else:
+                    tag = "PRICE DROP"
+
+                if tag == "PRICE DROP":
+                    price_str = f"${prev['price']} -> ${p['price']}"
+                else:
+                    price_str = f"${p['price']}" if p["price"] else "price unknown"
+
                 alerts.append(
                     f"[{tag}] {site['name']}: {p['name']} - {price_str}\n{p['url']}"
                 )
