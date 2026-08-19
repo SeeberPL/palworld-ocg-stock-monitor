@@ -139,7 +139,8 @@ not fine if it's a laptop that sleeps.
 
 ### Option B — GitHub Actions (free, no server to maintain)
 
-1. Push this folder to a new GitHub repo (can be private).
+1. Push this folder to a new GitHub repo (public, so the dashboard in
+   section 4 below can use free GitHub Pages).
 2. Add the 4 notification values as repo secrets (see above).
 3. That's it — `.github/workflows/monitor.yml` already runs it on the
    :00/:30 schedule and commits `state.json` back to the repo so it
@@ -148,14 +149,33 @@ not fine if it's a laptop that sleeps.
 
 Free minutes comfortably cover a 30-min-interval job.
 
+## 4. Stock dashboard
+
+Every run also writes `docs/index.html` — a simple table of the 4 core
+Dawn of Palpagos / Legends Awaken items (BP01, TD01, TD02, BP02) across
+every store, with a checkmark and price if in stock, linking straight to
+the product page. `classify_product()` in `monitor.py` maps each store's
+free-text product name to one of those 4 categories; anything else
+(booster cases, trial deck displays, single packs, sleeves, etc.) is left
+out of the grid on purpose, since it's not one of the 4 core items.
+
+To turn this into a live bookmarkable page via GitHub Pages (free, since
+the repo is public):
+
+1. Repo **Settings → Pages**.
+2. Under "Build and deployment" → Source: **Deploy from a branch**.
+3. Branch: **main**, folder: **/docs**. Save.
+4. GitHub gives you the URL (usually `https://<username>.github.io/<repo>/`)
+   within a minute or two. It updates automatically every run.
+
 ## Notes / limitations
 
 - If a site uses aggressive bot protection (Cloudflare challenge, etc.),
   plain `requests` will get blocked — that's a case-by-case fix, not
   something solvable generically.
 - The `html` parser only sees what's in the initial page load. JS-rendered
-  storefronts need Playwright instead — say the word if one of your 8
-  sites needs that and I'll add it.
+  storefronts need Playwright instead — say the word if one of your sites
+  needs that and I'll add it.
 - `state.json` is how it avoids double-emailing you — don't delete it
   unless you want a fresh (silent) baseline; deleting it does NOT send
   an "everything looks new" email, since the first run after a reset is

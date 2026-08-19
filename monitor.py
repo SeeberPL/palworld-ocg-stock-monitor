@@ -20,6 +20,7 @@ import os
 import re
 import smtplib
 import sys
+from datetime import datetime, timezone
 from email.message import EmailMessage
 from pathlib import Path
 
@@ -30,6 +31,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).parent
 CONFIG_PATH = BASE_DIR / "sites_config.json"
 STATE_PATH = BASE_DIR / "state.json"
+DASHBOARD_PATH = BASE_DIR / "docs" / "index.html"
 
 # Loads BASE_DIR/.env into the environment if it exists (local/PC/VPS use).
 # On GitHub Actions there's no .env file - the workflow injects the same
@@ -286,6 +288,134 @@ def send_email(subject, body):
 
 
 # ---------------------------------------------------------------------------
+# Dashboard - a per-store/per-product stock grid for the 4 core Dawn of
+# Palpagos / Legends Awaken items, written to docs/index.html for GitHub
+# Pages. Product names are free text and vary a lot between stores, so
+# classify_product() matches on the same core phrases each store actually
+# uses rather than relying on any single store's naming convention.
+# ---------------------------------------------------------------------------
+
+DASHBOARD_CATEGORIES = ["BP01", "TD01", "TD02", "BP02"]
+
+
+def classify_product(name):
+    """
+    Maps a free-text product name to one of the 4 core single-unit items
+    (BP01/TD01/TD02/BP02), or None if it's a bulk/variant product (booster
+    case, trial deck display, single booster pack, sleeves, playmats,
+    etc.) or an unrelated item (e.g. a different set entirely).
+    """
+    n = name.lower()
+    if "case" in n or "display" in n or re.search(r"\bbooster pack\b(?!s)", n):
+        return None
+
+    has_dop = "dawn of palpagos" in n
+    has_la = "legends awaken" in n
+    has_box = "booster box" in n
+    has_td = "trial deck" in n
+    has_red = "red" in n
+    has_blue = "blue" in n
+    has_green = "green" in n
+    has_purple = "purple" in n
+
+    if has_dop and has_box:
+        return "BP01"
+    if has_la and has_box:
+        return "BP02"
+    if has_td and has_red and has_blue:
+        return "TD01"
+    if has_td and has_green and has_purple:
+        return "TD02"
+    return None
+
+
+def generate_dashboard(state, sites):
+    site_names = [s["name"] for s in sites if s.get("enabled", True)]
+    grid = {name: {cat: None for cat in DASHBOARD_CATEGORIES} for name in site_names}
+
+    for key, entry in state.items():
+        site_name = key.split("::", 1)[0]
+        if site_name not in grid:
+            continue
+        category = classify_product(entry["name"])
+        if not category:
+            continue
+        cell = grid[site_name][category]
+        # A store can carry multiple variants of the same item (e.g. CCGPrime's
+        # per-location listings) - if any variant is in stock, show it as in
+        # stock rather than whichever variant happened to be seen last.
+        if cell is None or (entry["in_stock"] and not cell["in_stock"]):
+            grid[site_name][category] = {
+                "in_stock": entry["in_stock"],
+                "url": entry["url"],
+                "price": entry["price"],
+            }
+
+    updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+    def escape(text):
+        return (text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+                .replace('"', "&quot;"))
+
+    rows_html = []
+    for site_name in site_names:
+        cells = []
+        for cat in DASHBOARD_CATEGORIES:
+            cell = grid[site_name][cat]
+            if cell is None:
+                cells.append('<td class="not-carried">&mdash;</td>')
+            elif cell["in_stock"]:
+                price_str = f' ${escape(str(cell["price"]))}' if cell["price"] else ""
+                cells.append(
+                    f'<td class="in-stock"><a href="{escape(cell["url"])}" '
+                    f'target="_blank" rel="noopener">&check;{price_str}</a></td>'
+                )
+            else:
+                cells.append(
+                    f'<td class="sold-out"><a href="{escape(cell["url"])}" '
+                    f'target="_blank" rel="noopener">&cross;</a></td>'
+                )
+        rows_html.append(f"<tr><td class=\"site-name\">{escape(site_name)}</td>{''.join(cells)}</tr>")
+
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palworld OCG Stock Tracker</title>
+<style>
+  body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+          margin: 2rem; background: #111318; color: #e8e8ea; }}
+  h1 {{ font-size: 1.4rem; margin-bottom: 0.25rem; }}
+  .updated {{ color: #8a8f98; font-size: 0.9rem; margin-bottom: 1.5rem; }}
+  .legend {{ color: #8a8f98; font-size: 0.85rem; margin-bottom: 1rem; }}
+  table {{ border-collapse: collapse; width: 100%; max-width: 640px; }}
+  th, td {{ border: 1px solid #2a2d35; padding: 0.55rem 0.9rem; text-align: center; }}
+  th {{ background: #1b1e25; font-weight: 600; }}
+  td.site-name {{ text-align: left; font-weight: 600; }}
+  td.in-stock {{ background: #123120; }}
+  td.in-stock a {{ color: #4ade80; text-decoration: none; font-weight: 700; font-size: 1.05rem; }}
+  td.in-stock a:hover {{ text-decoration: underline; }}
+  td.sold-out {{ background: #201415; color: #ef6a6a; }}
+  td.sold-out a {{ color: #ef6a6a; text-decoration: none; }}
+  td.not-carried {{ color: #4a4d55; }}
+</style>
+</head>
+<body>
+<h1>Palworld OCG Stock Tracker</h1>
+<div class="updated">Last updated: {updated}</div>
+<div class="legend">BP01 = Dawn of Palpagos Booster Box &middot; TD01 = Dawn of Palpagos Red/Blue Trial Deck &middot;
+TD02 = Dawn of Palpagos Green/Purple Trial Deck &middot; BP02 = Legends Awaken Booster Box</div>
+<table>
+<tr><th>Store</th><th>BP01</th><th>TD01</th><th>TD02</th><th>BP02</th></tr>
+{''.join(rows_html)}
+</table>
+</body>
+</html>
+"""
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -297,6 +427,7 @@ def main():
 
     new_state = {}
     alerts = []
+    succeeded_sites = set()
 
     for site in config["sites"]:
         if not site.get("enabled", True):
@@ -313,6 +444,7 @@ def main():
             print(f"[ERROR] {site['name']}: {e}", file=sys.stderr)
             continue
 
+        succeeded_sites.add(site["name"])
         for p in products:
             key = f"{site['name']}::{p['id']}"
             prev = state.get(key)
@@ -357,12 +489,26 @@ def main():
                     f"[{tag}] {site['name']}: {p['name']} - {price_str}\n{p['url']}"
                 )
 
-    # Carry forward anything we didn't see this run (e.g. temporary fetch
-    # failure) so we don't lose track of it / re-alert incorrectly.
+    # Carry forward anything we didn't see this run. If its site failed
+    # entirely this run (transient error), keep the entry exactly as-is so
+    # a temporary blip doesn't lose track of it or misfire an alert. If the
+    # site succeeded but this specific product just wasn't in the results,
+    # it's been delisted - mark it out of stock rather than leaving a
+    # possibly-stale "in stock" forever (this also keeps the dashboard
+    # honest about what's actually still being sold).
     for key, val in state.items():
-        new_state.setdefault(key, val)
+        if key in new_state:
+            continue
+        site_name = key.split("::", 1)[0]
+        if site_name in succeeded_sites:
+            new_state[key] = {**val, "in_stock": False}
+        else:
+            new_state[key] = val
 
     save_json(STATE_PATH, new_state)
+
+    DASHBOARD_PATH.parent.mkdir(exist_ok=True)
+    DASHBOARD_PATH.write_text(generate_dashboard(new_state, config["sites"]), encoding="utf-8")
 
     if is_first_run:
         # Nothing to compare against yet, so everything looks "new" purely
