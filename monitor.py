@@ -68,6 +68,23 @@ def parse_price(value):
         return None
 
 
+CURRENCY_SYMBOLS = {"USD": "$", "GBP": "£", "EUR": "€", "CAD": "CA$", "AUD": "AU$"}
+
+
+def format_price(price, currency):
+    """
+    Some stores (Kongs Cards, The Card Vault) are GBP-denominated - their
+    public product JSON always returns the store's base-currency price,
+    regardless of what a browser might show after Shopify's own
+    geo/currency conversion. Label it with the right symbol instead of
+    assuming everything is USD.
+    """
+    if price is None:
+        return "price unknown"
+    symbol = CURRENCY_SYMBOLS.get(currency, f"{currency} ")
+    return f"{symbol}{price}"
+
+
 # ---------------------------------------------------------------------------
 # Site parsers — each returns a list of dicts: {id, name, price, in_stock, url}
 # ---------------------------------------------------------------------------
@@ -144,6 +161,7 @@ def parse_shopify(site, keyword):
                 "id": f"{p['id']}-{variant['id']}",
                 "name": f"{p['title']} ({variant.get('title','Default')})".replace(" (Default Title)", ""),
                 "price": variant.get("price"),
+                "currency": variant.get("price_currency") or "USD",
                 "in_stock": variant_is_available(variant, m.get("available")),
                 "url": f"{base}/products/{p.get('handle')}",
             })
@@ -194,6 +212,7 @@ def parse_html(site, keyword):
             "id": re.sub(r"\s+", "-", name.lower()),
             "name": name,
             "price": price,
+            "currency": site.get("currency", "USD"),
             "in_stock": in_stock,
             "url": url,
         })
@@ -242,6 +261,7 @@ def parse_bigcommerce_bodl(site, keyword):
             "id": item.get("sku") or item.get("product_id"),
             "name": name,
             "price": item.get("purchase_price"),
+            "currency": item.get("currency") or site.get("currency", "USD"),
             "in_stock": quantity is None or quantity > 0,
             "url": site["url"],
         })
@@ -367,6 +387,7 @@ def generate_dashboard(state, sites):
                 "in_stock": entry["in_stock"],
                 "url": entry["url"],
                 "price": entry["price"],
+                "currency": entry.get("currency", "USD"),
             }
 
     updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -383,7 +404,7 @@ def generate_dashboard(state, sites):
             if cell is None:
                 cells.append('<td class="not-carried">&mdash;</td>')
             elif cell["in_stock"]:
-                price_str = f' ${escape(str(cell["price"]))}' if cell["price"] else ""
+                price_str = f' {escape(format_price(cell["price"], cell["currency"]))}' if cell["price"] else ""
                 cells.append(
                     f'<td class="in-stock"><a href="{escape(cell["url"])}" '
                     f'target="_blank" rel="noopener">&check;{price_str}</a></td>'
@@ -472,6 +493,7 @@ def main():
                 "url": p["url"],
                 "in_stock": p["in_stock"],
                 "price": p["price"],
+                "currency": p.get("currency", "USD"),
             }
 
             is_new_listing = prev is None
@@ -499,10 +521,11 @@ def main():
                 else:
                     tag = "PRICE DROP"
 
+                currency = p.get("currency", "USD")
                 if tag == "PRICE DROP":
-                    price_str = f"${prev['price']} -> ${p['price']}"
+                    price_str = f"{format_price(prev['price'], prev.get('currency', currency))} -> {format_price(p['price'], currency)}"
                 else:
-                    price_str = f"${p['price']}" if p["price"] else "price unknown"
+                    price_str = format_price(p["price"], currency)
 
                 alerts.append(
                     f"[{tag}] {site['name']}: {p['name']} - {price_str}\n{p['url']}"
