@@ -69,51 +69,21 @@ def parse_price(value):
         return None
 
 
-_usd_rate_cache = {}
-
-
-def get_usd_rate(currency):
-    """
-    Same-day currency-to-USD rate, cached for the life of this process (one
-    run = one rate per currency, not one call per product). Returns None if
-    the conversion service is unavailable, so callers can fall back rather
-    than silently showing a wrong number.
-    """
-    if currency == "USD":
-        return 1.0
-    if currency in _usd_rate_cache:
-        return _usd_rate_cache[currency]
-    try:
-        r = requests.get(
-            "https://api.frankfurter.app/latest",
-            params={"from": currency, "to": "USD"},
-            timeout=10,
-        )
-        r.raise_for_status()
-        rate = r.json()["rates"]["USD"]
-    except Exception:
-        rate = None
-    _usd_rate_cache[currency] = rate
-    return rate
-
-
 def format_price(price, currency):
     """
-    Prices are stored in each store's native currency (Kongs Cards and The
-    Card Vault are GBP) so the price-drop comparison logic stays accurate
-    without re-fetching exchange rates. This converts to USD only for
-    display, using a same-day reference rate. If the rate is unavailable,
-    falls back to showing the native currency rather than a wrong number.
+    Every parser requests/returns USD directly at the source now (Shopify's
+    own `?currency=USD` param does real merchant-configured conversion for
+    non-USD stores like Kongs Cards and The Card Vault - see parse_shopify).
+    `currency` is kept as a defensive check rather than assumed: if a store
+    ever ignores that param and returns something else, this shows it
+    labeled with its real currency code instead of mislabeling it "$".
     """
     amount = parse_price(price)
     if amount is None:
         return "price unknown"
     if currency == "USD":
         return f"${amount:.2f}"
-    rate = get_usd_rate(currency)
-    if rate is None:
-        return f"{currency} {amount:.2f}"
-    return f"${amount * rate:.2f}"
+    return f"{currency} {amount:.2f}"
 
 
 # ---------------------------------------------------------------------------
@@ -152,6 +122,10 @@ def parse_shopify(site, keyword):
     catalog), then fetches each match's full product JSON to get
     per-variant price/stock detail (the search endpoint itself doesn't
     include variants).
+    Non-USD stores (Kongs Cards, The Card Vault are GBP) get a `currency=USD`
+    query param on every request - Shopify Markets honors this and returns
+    the merchant's own real converted price (their actual configured rate
+    and markup), not just a raw amount in their base currency.
     """
     products = []
     base = site["base_url"].rstrip("/")
@@ -162,6 +136,7 @@ def parse_shopify(site, keyword):
         "resources[type]": "product",
         "resources[limit]": 50,
         "resources[options][unavailable_products]": "show",
+        "currency": "USD",
     }
     r = requests.get(search_url, headers=HEADERS, params=params, timeout=15)
     r.raise_for_status()
@@ -181,7 +156,12 @@ def parse_shopify(site, keyword):
         if keyword.lower() not in haystack:
             continue
 
-        pr = requests.get(f"{base}/products/{handle}.json", headers=HEADERS, timeout=15)
+        pr = requests.get(
+            f"{base}/products/{handle}.json",
+            headers=HEADERS,
+            params={"currency": "USD"},
+            timeout=15,
+        )
         if pr.status_code != 200:
             continue
         p = pr.json().get("product")
