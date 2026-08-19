@@ -69,21 +69,51 @@ def parse_price(value):
         return None
 
 
-CURRENCY_SYMBOLS = {"USD": "$", "GBP": "£", "EUR": "€", "CAD": "CA$", "AUD": "AU$"}
+_usd_rate_cache = {}
+
+
+def get_usd_rate(currency):
+    """
+    Same-day currency-to-USD rate, cached for the life of this process (one
+    run = one rate per currency, not one call per product). Returns None if
+    the conversion service is unavailable, so callers can fall back rather
+    than silently showing a wrong number.
+    """
+    if currency == "USD":
+        return 1.0
+    if currency in _usd_rate_cache:
+        return _usd_rate_cache[currency]
+    try:
+        r = requests.get(
+            "https://api.frankfurter.app/latest",
+            params={"from": currency, "to": "USD"},
+            timeout=10,
+        )
+        r.raise_for_status()
+        rate = r.json()["rates"]["USD"]
+    except Exception:
+        rate = None
+    _usd_rate_cache[currency] = rate
+    return rate
 
 
 def format_price(price, currency):
     """
-    Some stores (Kongs Cards, The Card Vault) are GBP-denominated - their
-    public product JSON always returns the store's base-currency price,
-    regardless of what a browser might show after Shopify's own
-    geo/currency conversion. Label it with the right symbol instead of
-    assuming everything is USD.
+    Prices are stored in each store's native currency (Kongs Cards and The
+    Card Vault are GBP) so the price-drop comparison logic stays accurate
+    without re-fetching exchange rates. This converts to USD only for
+    display, using a same-day reference rate. If the rate is unavailable,
+    falls back to showing the native currency rather than a wrong number.
     """
-    if price is None:
+    amount = parse_price(price)
+    if amount is None:
         return "price unknown"
-    symbol = CURRENCY_SYMBOLS.get(currency, f"{currency} ")
-    return f"{symbol}{price}"
+    if currency == "USD":
+        return f"${amount:.2f}"
+    rate = get_usd_rate(currency)
+    if rate is None:
+        return f"{currency} {amount:.2f}"
+    return f"${amount * rate:.2f}"
 
 
 # ---------------------------------------------------------------------------
@@ -391,7 +421,7 @@ def generate_dashboard(state, sites):
                 "currency": entry.get("currency", "USD"),
             }
 
-    updated = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d %H:%M %Z")
+    updated = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d %I:%M %p %Z")
 
     def escape(text):
         return (text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
