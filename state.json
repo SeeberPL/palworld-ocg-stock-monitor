@@ -1,4 +1,64 @@
 {
+  "CCGPrime::9092809392305-47781340315825": {
+    "in_stock": false,
+    "name": "Palworld Card Game: Dawn of Palpagos - Booster Box (Central)",
+    "price": "85.00",
+    "url": "https://ccgprime.com/products/palworld-card-game-dawn-of-palpagos-booster-box"
+  },
+  "CCGPrime::9095229440177-47788350537905": {
+    "in_stock": false,
+    "name": "Palworld Dawn of Palpagos Green & Purple Trial Deck (Central)",
+    "price": "25.00",
+    "url": "https://ccgprime.com/products/palworld-dawn-of-palpagos-green-purple-trial-deck"
+  },
+  "CCGPrime::9095229440177-47788350570673": {
+    "in_stock": false,
+    "name": "Palworld Dawn of Palpagos Green & Purple Trial Deck (Annex)",
+    "price": "25.00",
+    "url": "https://ccgprime.com/products/palworld-dawn-of-palpagos-green-purple-trial-deck"
+  },
+  "CCGPrime::9095229440177-47788350636209": {
+    "in_stock": false,
+    "name": "Palworld Dawn of Palpagos Green & Purple Trial Deck (North)",
+    "price": "25.00",
+    "url": "https://ccgprime.com/products/palworld-dawn-of-palpagos-green-purple-trial-deck"
+  },
+  "CCGPrime::9095229440177-47788911427761": {
+    "in_stock": false,
+    "name": "Palworld Dawn of Palpagos Green & Purple Trial Deck (Main)",
+    "price": "25.00",
+    "url": "https://ccgprime.com/products/palworld-dawn-of-palpagos-green-purple-trial-deck"
+  },
+  "CCGPrime::9095233831089-47788364595377": {
+    "in_stock": false,
+    "name": "Palworld  Dawn of Palpagos Red & Blue Trial Deck (Central)",
+    "price": "25.00",
+    "url": "https://ccgprime.com/products/palworld-dawn-of-palpagos-red-blue-trial-deck"
+  },
+  "CCGPrime::9095233831089-47788364628145": {
+    "in_stock": false,
+    "name": "Palworld  Dawn of Palpagos Red & Blue Trial Deck (Annex)",
+    "price": "25.00",
+    "url": "https://ccgprime.com/products/palworld-dawn-of-palpagos-red-blue-trial-deck"
+  },
+  "CCGPrime::9095233831089-47788364726449": {
+    "in_stock": false,
+    "name": "Palworld  Dawn of Palpagos Red & Blue Trial Deck (West)",
+    "price": "25.00",
+    "url": "https://ccgprime.com/products/palworld-dawn-of-palpagos-red-blue-trial-deck"
+  },
+  "CCGPrime::9095233831089-47788911493297": {
+    "in_stock": false,
+    "name": "Palworld  Dawn of Palpagos Red & Blue Trial Deck (Main)",
+    "price": "25.00",
+    "url": "https://ccgprime.com/products/palworld-dawn-of-palpagos-red-blue-trial-deck"
+  },
+  "CCGPrime::9096949792945-47794450497713": {
+    "in_stock": false,
+    "name": "Palworld Card Game: Dawn of Palpagos - Booster Pack (Central)",
+    "price": "7.00",
+    "url": "https://ccgprime.com/products/palworld-card-game-dawn-of-palpagos-booster-pack"
+  },
   "Flipside Gaming::8241132372002-44846002733090": {
     "in_stock": false,
     "name": "Palworld TCG: Dawn of Palpagos Booster Box",
@@ -306,7 +366,7 @@
     "url": "https://gamersguildaz.com/products/palworld-ocg-sleeve-card-set-vol-1"
   },
   "Kongs Cards::15959801266557-58393179128189": {
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game - Dawn of Palpagos - Booster Box (12 Packs)",
     "price": "114.99",
     "url": "https://kongscards.co.uk/products/palworld-official-card-game-dawn-of-palpagos-booster-box-12-packs"
