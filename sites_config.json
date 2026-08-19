@@ -100,6 +100,13 @@
         "stock_indicator": ".stock-notify-wrapper"
       },
       "_note": "Shopware site. The URL is pre-filtered to their 'Palworld' brand property so we don't have to scan their whole 'Other CCGs' catalog. Stock detection is absence-based: a .stock-notify-wrapper element only renders when the item is sold out, so the default in_stock_text ('in stock', which won't match its 'Out of stock' text) correctly reads presence-of-element as sold out and absence as in stock."
+    },
+    {
+      "name": "CCGPrime",
+      "type": "shopify",
+      "base_url": "https://ccgprime.com",
+      "enabled": true,
+      "_note": "Requested via a shop.app storefront link (shop.app/m/jxk1unb9vq) - that's a Shopify 'Shop app' listing, not the merchant's real domain. Resolved to their actual Shopify store at ccgprime.com and use the standard search-based approach against that instead, since it's the authoritative source (shop.app's own availability display was stale/out of sync with the real storefront during testing)."
     }
   ]
 }

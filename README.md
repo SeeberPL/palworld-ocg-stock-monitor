@@ -6,7 +6,7 @@ something shows up.
 
 ## 1. Your sites (already filled in)
 
-`sites_config.json` is configured for 14 sites:
+`sites_config.json` is configured for 15 sites:
 
 | Site | Type | Status |
 |---|---|---|
@@ -24,8 +24,9 @@ something shows up.
 | Kongs Cards | Shopify | Ready |
 | TCG Guy Hub | Wix (`html`) | Ready |
 | Miniature Market | Shopware (`html`) | Ready |
+| CCGPrime | Shopify | Ready |
 
-11 of the 14 run on Shopify, so they use the search-based `products.json`
+12 of the 15 run on Shopify, so they use the search-based `products.json`
 approach with no scraping guesswork. Game Nerdz runs on BigCommerce with
 a JS-rendered product grid (nothing usable in the plain HTML), so it
 instead reads the analytics data blob BigCommerce embeds in the
@@ -39,6 +40,13 @@ their category pages, so the generic `html` scraper works directly
 against each platform's own markup. Miniature Market's URL is
 pre-filtered to their "Palworld" brand property so it doesn't have to
 scan their whole "Other CCGs" catalog.
+
+CCGPrime was requested as a `shop.app/m/...` link (Shopify's own "Shop
+app" storefront listing), not the merchant's real domain. Resolved that
+to their actual Shopify store at `ccgprime.com` and used the standard
+approach against that instead - shop.app's own availability display was
+out of sync with the real storefront during testing, so querying the
+merchant's own store directly is both simpler and more trustworthy.
 
 **Not added:** `magicmadhouse.co.uk` (BigCommerce). Unlike Game Nerdz,
 its product grid is rendered entirely by a third-party search widget
