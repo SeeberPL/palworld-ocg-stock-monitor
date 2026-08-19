@@ -20,7 +20,8 @@ import os
 import re
 import smtplib
 import sys
-from datetime import datetime, timezone
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from email.message import EmailMessage
 from pathlib import Path
 
@@ -390,7 +391,7 @@ def generate_dashboard(state, sites):
                 "currency": entry.get("currency", "USD"),
             }
 
-    updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    updated = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d %H:%M %Z")
 
     def escape(text):
         return (text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
