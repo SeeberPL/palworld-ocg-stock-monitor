@@ -288,22 +288,29 @@ def send_email(subject, body):
 
 
 # ---------------------------------------------------------------------------
-# Dashboard - a per-store/per-product stock grid for the 4 core Dawn of
-# Palpagos / Legends Awaken items, written to docs/index.html for GitHub
-# Pages. Product names are free text and vary a lot between stores, so
-# classify_product() matches on the same core phrases each store actually
-# uses rather than relying on any single store's naming convention.
+# Dashboard - a per-store/per-product stock grid for the core Palworld TCG
+# items, written to docs/index.html for GitHub Pages. Product names are
+# free text and vary a lot between stores, so classify_product() matches
+# on the same core phrases each store actually uses rather than relying
+# on any single store's naming convention.
 # ---------------------------------------------------------------------------
 
-DASHBOARD_CATEGORIES = ["BP01", "TD01", "TD02", "BP02"]
+# Column order follows release date: Dawn of Palpagos (BP01/TD01/TD02), the
+# Sleeve & Card Set, Legends Awaken (BP02), then the as-yet-unreleased
+# "Set 3" (TD03/TD04/BP03 - title TBA as of this writing).
+DASHBOARD_CATEGORIES = ["BP01", "TD01", "TD02", "SLEEVE", "BP02", "TD03", "TD04", "BP03"]
+DASHBOARD_LABELS = {
+    "BP01": "BP01", "TD01": "TD01", "TD02": "TD02", "SLEEVE": "Sleeve Set",
+    "BP02": "BP02", "TD03": "TD03", "TD04": "TD04", "BP03": "BP03",
+}
 
 
 def classify_product(name):
     """
-    Maps a free-text product name to one of the 4 core single-unit items
-    (BP01/TD01/TD02/BP02), or None if it's a bulk/variant product (booster
-    case, trial deck display, single booster pack, sleeves, playmats,
-    etc.) or an unrelated item (e.g. a different set entirely).
+    Maps a free-text product name to one of the core single-unit items
+    tracked on the dashboard, or None if it's a bulk/variant product
+    (booster case, trial deck display, single booster pack, individual
+    character sleeves, playmats, etc.) or something else entirely.
     """
     n = name.lower()
     if "case" in n or "display" in n or re.search(r"\bbooster pack\b(?!s)", n):
@@ -311,21 +318,32 @@ def classify_product(name):
 
     has_dop = "dawn of palpagos" in n
     has_la = "legends awaken" in n
+    has_set3 = "set 3" in n
     has_box = "booster box" in n
     has_td = "trial deck" in n
     has_red = "red" in n
     has_blue = "blue" in n
     has_green = "green" in n
     has_purple = "purple" in n
+    has_sleeve = "sleeve" in n
+    has_card_set = "card set" in n
 
     if has_dop and has_box:
         return "BP01"
     if has_la and has_box:
         return "BP02"
+    if has_set3 and has_box:
+        return "BP03"
     if has_td and has_red and has_blue:
         return "TD01"
     if has_td and has_green and has_purple:
         return "TD02"
+    if has_set3 and has_td and ("trial deck 3" in n or "td03" in n):
+        return "TD03"
+    if has_set3 and has_td and ("trial deck 4" in n or "td04" in n):
+        return "TD04"
+    if has_sleeve and has_card_set:
+        return "SLEEVE"
     return None
 
 
@@ -389,8 +407,8 @@ def generate_dashboard(state, sites):
   h1 {{ font-size: 1.4rem; margin-bottom: 0.25rem; }}
   .updated {{ color: #8a8f98; font-size: 0.9rem; margin-bottom: 1.5rem; }}
   .legend {{ color: #8a8f98; font-size: 0.85rem; margin-bottom: 1rem; }}
-  table {{ border-collapse: collapse; width: 100%; max-width: 640px; }}
-  th, td {{ border: 1px solid #2a2d35; padding: 0.55rem 0.9rem; text-align: center; }}
+  table {{ border-collapse: collapse; width: 100%; max-width: 920px; }}
+  th, td {{ border: 1px solid #2a2d35; padding: 0.5rem 0.6rem; text-align: center; }}
   th {{ background: #1b1e25; font-weight: 600; }}
   td.site-name {{ text-align: left; font-weight: 600; }}
   td.in-stock {{ background: #123120; }}
@@ -404,10 +422,11 @@ def generate_dashboard(state, sites):
 <body>
 <h1>Palworld OCG Stock Tracker</h1>
 <div class="updated">Last updated: {updated}</div>
-<div class="legend">BP01 = Dawn of Palpagos Booster Box &middot; TD01 = Dawn of Palpagos Red/Blue Trial Deck &middot;
-TD02 = Dawn of Palpagos Green/Purple Trial Deck &middot; BP02 = Legends Awaken Booster Box</div>
+<div class="legend">BP01 = Dawn of Palpagos Booster Box &middot; TD01 = its Red/Blue Trial Deck &middot;
+TD02 = its Green/Purple Trial Deck &middot; Sleeve Set = Sleeve &amp; Card Set Vol. 1 &middot;
+BP02 = Legends Awaken Booster Box &middot; TD03/TD04/BP03 = the unreleased "Set 3" (title TBA)</div>
 <table>
-<tr><th>Store</th><th>BP01</th><th>TD01</th><th>TD02</th><th>BP02</th></tr>
+<tr><th>Store</th>{''.join(f'<th>{DASHBOARD_LABELS[cat]}</th>' for cat in DASHBOARD_CATEGORIES)}</tr>
 {''.join(rows_html)}
 </table>
 </body>
