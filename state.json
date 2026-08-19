@@ -270,7 +270,7 @@
     "url": "https://www.gamenerdz.com/palworld/"
   },
   "Gamers Getaway KC::10499198419232-52092242100512": {
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld: Dawn of Palpagos 1st Edition \"Palword\" Printing Error Booster Box",
     "price": "149.99",
     "url": "https://gamersgetawaykc.com/products/palworld-dawn-of-palpagos-1st-edition-booster-box"
@@ -346,6 +346,18 @@
     "name": "Palworld OCG: Sleeve Collection - Dragon Caller Chillet 75ct (Pre-Order)",
     "price": "10.50",
     "url": "https://gamersguildaz.com/products/palworld-ocg-sleeve-collection-dragon-caller-chillet-75ct"
+  },
+  "Gamers Guild AZ::15016601289067-53268622737771": {
+    "in_stock": false,
+    "name": "Palworld OCG: Sleeve Collection - Palworld Logo 75ct (Pre-Order)",
+    "price": "10.50",
+    "url": "https://gamersguildaz.com/products/palworld-ocg-sleeve-collection-palworld-logo-75ct"
+  },
+  "Gamers Guild AZ::15016642937195-53268685324651": {
+    "in_stock": false,
+    "name": "Palworld OCG: Deck Holder Collection - Goddess' Blessing Lyleen (Pre-Order)",
+    "price": "28.00",
+    "url": "https://gamersguildaz.com/products/palworld-ocg-deck-holder-collection-goddess-blessing-lyleen"
   },
   "Gamers Guild AZ::15067667267947-53408148193643": {
     "in_stock": false,
@@ -666,7 +678,7 @@
     "url": "https://topspot.cards/products/palworld-td04-set-3-trial-deck-4-en"
   },
   "Topspot Cards::9242890240138-49879050158218": {
-    "in_stock": true,
+    "in_stock": false,
     "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Palworld Set 3 (Title TBA) 144x OPENED Packs",
     "price": "540.00",
     "url": "https://topspot.cards/products/palworld-bp03-set-3-booster-case-en-anti-scalper"
