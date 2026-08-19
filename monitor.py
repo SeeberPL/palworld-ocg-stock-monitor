@@ -151,8 +151,15 @@ def parse_shopify(site, keyword):
         # return results with no real textual connection to the query (seen
         # in practice: an RPG game-master kit "matching" a "palworld"
         # search). Re-check the keyword actually appears somewhere on the
-        # product before trusting the match.
-        haystack = f"{m.get('title','')} {m.get('type','')} {' '.join(m.get('tags',[]))}".lower()
+        # product before trusting the match. Some stores (Topspot) put the
+        # keyword only in `vendor` - e.g. a product titled just by its SKU
+        # code with vendor "Palworld" - so title/type/tags alone isn't
+        # enough; missing vendor here previously caused every Topspot
+        # product to look unmatched and get marked delisted.
+        haystack = (
+            f"{m.get('title','')} {m.get('type','')} {m.get('vendor','')} "
+            f"{' '.join(m.get('tags',[]))}"
+        ).lower()
         if keyword.lower() not in haystack:
             continue
 
@@ -327,8 +334,8 @@ def send_email(subject, body):
 # ---------------------------------------------------------------------------
 
 # Column order follows release date: Dawn of Palpagos (BP01/TD01/TD02), the
-# Sleeve & Card Set, Legends Awaken (BP02), then the as-yet-unreleased
-# "Set 3" (TD03/TD04/BP03 - title TBA as of this writing).
+# Sleeve & Card Set, Legends Awaken (BP02), then the 3rd set, "Eternal
+# Ascent" (TD03/TD04/BP03).
 DASHBOARD_CATEGORIES = ["BP01", "TD01", "TD02", "SLEEVE", "BP02", "TD03", "TD04", "BP03"]
 DASHBOARD_LABELS = {
     "BP01": "BP01", "TD01": "TD01", "TD02": "TD02", "SLEEVE": "Sleeve Set",
@@ -349,7 +356,10 @@ def classify_product(name):
 
     has_dop = "dawn of palpagos" in n
     has_la = "legends awaken" in n
-    has_set3 = "set 3" in n
+    # "set 3" was Topspot's placeholder before the set had a name; it's now
+    # officially "Eternal Ascent" - keep matching both in case any store
+    # still shows the old placeholder text.
+    has_set3 = "set 3" in n or "eternal ascent" in n
     has_box = "booster box" in n
     has_td = "trial deck" in n
     has_red = "red" in n
@@ -456,7 +466,7 @@ def generate_dashboard(state, sites):
 <div class="updated">Last updated: {updated}</div>
 <div class="legend">BP01 = Dawn of Palpagos Booster Box &middot; TD01 = its Red/Blue Trial Deck &middot;
 TD02 = its Green/Purple Trial Deck &middot; Sleeve Set = Sleeve &amp; Card Set Vol. 1 &middot;
-BP02 = Legends Awaken Booster Box &middot; TD03/TD04/BP03 = the unreleased "Set 3" (title TBA)</div>
+BP02 = Legends Awaken Booster Box &middot; TD03/TD04/BP03 = the 3rd set, Eternal Ascent</div>
 <table>
 <tr><th>Store</th>{''.join(f'<th>{DASHBOARD_LABELS[cat]}</th>' for cat in DASHBOARD_CATEGORIES)}</tr>
 {''.join(rows_html)}
@@ -493,6 +503,24 @@ def main():
             products = parser(site, keyword)
         except Exception as e:
             print(f"[ERROR] {site['name']}: {e}", file=sys.stderr)
+            continue
+
+        # A site that previously had tracked products but suddenly returns
+        # none is more likely a scrape bug (seen in practice: a keyword
+        # safety-check too strict for one store's naming, silently zeroing
+        # out real results) than every single item actually being delisted
+        # at once. Treat that as a failure - preserve existing state rather
+        # than mass-marking everything sold out - while still trusting a
+        # genuine 0 for a site with no prior history (e.g. right after
+        # being added).
+        had_prior_entries = any(k.startswith(f"{site['name']}::") for k in state)
+        if not products and had_prior_entries:
+            print(
+                f"[WARN] {site['name']}: returned 0 products but previously had "
+                f"tracked entries - treating as a likely scrape issue, not a real "
+                f"mass delisting. Existing state preserved untouched.",
+                file=sys.stderr,
+            )
             continue
 
         succeeded_sites.add(site["name"])
