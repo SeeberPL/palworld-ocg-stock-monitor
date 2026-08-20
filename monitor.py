@@ -466,7 +466,7 @@ def generate_dashboard(state, sites):
 <div class="updated">Last updated: {updated}</div>
 <div class="legend">BP01/TD01/TD02 = Dawn of Palpagos (Booster Box, Red/Blue Trial Deck, Green/Purple Trial Deck) &middot;
 Sleeve Set = Sleeve &amp; Card Set Vol. 1 &middot; BP02 = Legends Awaken Booster Box &middot;
-TD03/TD04/BP03 = the 3rd set, Eternal Ascent</div>
+TD03/TD04/BP03 = Eternal Ascent (Red/Green Trial Deck, Blue/Purple Trial Deck, Booster Box)</div>
 <table>
 <tr><th>Store</th>{''.join(f'<th>{DASHBOARD_LABELS[cat]}</th>' for cat in DASHBOARD_CATEGORIES)}</tr>
 {''.join(rows_html)}
