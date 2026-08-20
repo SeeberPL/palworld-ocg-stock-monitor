@@ -464,9 +464,9 @@ def generate_dashboard(state, sites):
 <body>
 <h1>Palworld OCG Stock Tracker</h1>
 <div class="updated">Last updated: {updated}</div>
-<div class="legend">BP01 = Dawn of Palpagos Booster Box &middot; TD01 = its Red/Blue Trial Deck &middot;
-TD02 = its Green/Purple Trial Deck &middot; Sleeve Set = Sleeve &amp; Card Set Vol. 1 &middot;
-BP02 = Legends Awaken Booster Box &middot; TD03/TD04/BP03 = the 3rd set, Eternal Ascent</div>
+<div class="legend">BP01/TD01/TD02 = Dawn of Palpagos (Booster Box, Red/Blue Trial Deck, Green/Purple Trial Deck) &middot;
+Sleeve Set = Sleeve &amp; Card Set Vol. 1 &middot; BP02 = Legends Awaken Booster Box &middot;
+TD03/TD04/BP03 = the 3rd set, Eternal Ascent</div>
 <table>
 <tr><th>Store</th>{''.join(f'<th>{DASHBOARD_LABELS[cat]}</th>' for cat in DASHBOARD_CATEGORIES)}</tr>
 {''.join(rows_html)}
