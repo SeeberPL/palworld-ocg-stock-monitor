@@ -726,18 +726,21 @@
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-sleeve-card-set-vol-1"
   },
   "Topspot Cards::9109533098122-49543310377098": {
+    "currency": "USD",
     "in_stock": false,
     "name": "Preorder: BP02 Legends Awaken Booster Case (EN)",
     "price": "576.00",
     "url": "https://topspot.cards/products/palworld-bp02-legends-awaken-booster-case-en"
   },
   "Topspot Cards::9109545844874-49543328366730": {
+    "currency": "USD",
     "in_stock": false,
     "name": "[LIMIT 1] Preorder: BP02 Legends Awaken Booster Box (EN)",
     "price": "48.00",
     "url": "https://topspot.cards/products/palworld-bp02-legends-awaken-booster-box-en"
   },
   "Topspot Cards::9109561344138-49543352582282": {
+    "currency": "USD",
     "in_stock": false,
     "name": "[LIMIT 4] Preorder: POCGe-SS01 Sleeve & Card Set Vol. 1 (EN)",
     "price": "25.00",
@@ -745,31 +748,31 @@
   },
   "Topspot Cards::9242882244746-49879041638538": {
     "currency": "USD",
-    "in_stock": false,
-    "name": "Preorder: TD03 Palworld Set 3 - Trial Deck 3 Display (EN)",
+    "in_stock": true,
+    "name": "Preorder: TD03 Eternal Ascent Red\u30fbGreen Trial Deck Display (EN)",
     "price": "110.00",
-    "url": "https://topspot.cards/products/palworld-td03-set-3-trial-deck-3-display-en"
+    "url": "https://topspot.cards/products/palworld-td03-eternal-ascent-red-green-trial-deck-display-en"
   },
   "Topspot Cards::9242883522698-49879043047562": {
     "currency": "USD",
-    "in_stock": false,
-    "name": "Preorder: TD03 Palworld Set 3 - Trial Deck 3 (EN)",
+    "in_stock": true,
+    "name": "Preorder: TD03 Eternal Ascent Red\u30fbGreen Trial Deck (EN)",
     "price": "20.00",
-    "url": "https://topspot.cards/products/palworld-td03-set-3-trial-deck-3-en"
+    "url": "https://topspot.cards/products/palworld-td03-eternal-ascent-red-green-trial-deck-en"
   },
   "Topspot Cards::9242887815306-49879047733386": {
     "currency": "USD",
-    "in_stock": false,
-    "name": "Preorder: TD04 Palworld Set 3 - Trial Deck 4 Display (EN)",
+    "in_stock": true,
+    "name": "Preorder: TD04 Eternal Ascent Blue\u30fbPurple Trial Deck Display (EN)",
     "price": "110.00",
-    "url": "https://topspot.cards/products/palworld-td04-set-3-trial-deck-4-display-en"
+    "url": "https://topspot.cards/products/palworld-td04-eternal-ascent-blue-purple-trial-deck-display-en"
   },
   "Topspot Cards::9242889584778-49879049502858": {
     "currency": "USD",
-    "in_stock": false,
-    "name": "Preorder: TD04 Palworld Set 3 - Trial Deck 4 (EN)",
+    "in_stock": true,
+    "name": "Preorder: TD04 Eternal Ascent Blue\u30fbPurple Trial Deck (EN)",
     "price": "20.00",
-    "url": "https://topspot.cards/products/palworld-td04-set-3-trial-deck-4-en"
+    "url": "https://topspot.cards/products/palworld-td04-eternal-ascent-blue-purple-trial-deck-en"
   },
   "Topspot Cards::9242890240138-49879050158218": {
     "in_stock": false,
@@ -779,24 +782,24 @@
   },
   "Topspot Cards::9242890961034-49879050879114": {
     "currency": "USD",
-    "in_stock": false,
-    "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Palworld Set 3 (EN) (Title TBA) 12x OPENED Packs",
+    "in_stock": true,
+    "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Eternal Ascent (EN) 12x OPENED Packs",
     "price": "45.00",
-    "url": "https://topspot.cards/products/palworld-bp03-set-3-booster-box-en-anti-scalper"
+    "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-box-en-anti-scalper"
   },
   "Topspot Cards::9242970259594-49879391240330": {
     "currency": "USD",
-    "in_stock": false,
-    "name": "FACTORY SEALED Preorder READ DESCRIPTION: BP03 Palworld Set 3 (Title TBA) Booster Case (EN)",
+    "in_stock": true,
+    "name": "FACTORY SEALED Preorder READ DESCRIPTION: BP03 Eternal Ascent Booster Case (EN)",
     "price": "720.00",
-    "url": "https://topspot.cards/products/palworld-bp03-palworld-set-3-booster-case-en"
+    "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-case-en"
   },
   "Topspot Cards::9242970292362-49879391273098": {
     "currency": "USD",
-    "in_stock": false,
-    "name": "FACTORY SEALED Preorder READ DESCRIPTION: BP03 Palworld Set 3 (Title TBA) Booster Box (EN)",
+    "in_stock": true,
+    "name": "FACTORY SEALED Preorder READ DESCRIPTION: BP03 Eternal Ascent Booster Box (EN)",
     "price": "60.00",
-    "url": "https://topspot.cards/products/palworld-bp03-palworld-set-3-booster-box-en"
+    "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-box-en"
   },
   "VGMX::10293361082682-53459179143482": {
     "currency": "USD",
