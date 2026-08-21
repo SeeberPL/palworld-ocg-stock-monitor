@@ -401,7 +401,7 @@
   },
   "Gamers Guild AZ::14895486894443-52895355666795": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Dawn of Palpagos Trial Deck - Red/Blue",
     "price": "33.99",
     "url": "https://gamersguildaz.com/products/palworld-ocg-dawn-of-palpagos-trial-deck-red-blue",
@@ -409,7 +409,7 @@
   },
   "Gamers Guild AZ::14895489450347-52895359762795": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Dawn of Palpagos Trial Deck - Green/Purple",
     "price": "33.99",
     "url": "https://gamersguildaz.com/products/palworld-ocg-dawn-of-palpagos-trial-deck-green-purple",
