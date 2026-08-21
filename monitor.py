@@ -69,21 +69,17 @@ def parse_price(value):
         return None
 
 
-def format_price(price, currency):
+def format_price(usd_price):
     """
-    Every parser requests/returns USD directly at the source now (Shopify's
-    own `?currency=USD` param does real merchant-configured conversion for
-    non-USD stores like Kongs Cards and The Card Vault - see parse_shopify).
-    `currency` is kept as a defensive check rather than assumed: if a store
-    ever ignores that param and returns something else, this shows it
-    labeled with its real currency code instead of mislabeling it "$".
+    Formats a USD amount for display. Every parser provides `usd_price`
+    already converted (Shopify's own `?currency=USD` param does real
+    merchant-configured conversion for non-USD stores - see parse_shopify);
+    this function is purely presentational, not a conversion point.
     """
-    amount = parse_price(price)
+    amount = parse_price(usd_price)
     if amount is None:
         return "price unknown"
-    if currency == "USD":
-        return f"${amount:.2f}"
-    return f"{currency} {amount:.2f}"
+    return f"${amount:.2f}"
 
 
 # ---------------------------------------------------------------------------
@@ -122,10 +118,15 @@ def parse_shopify(site, keyword):
     catalog), then fetches each match's full product JSON to get
     per-variant price/stock detail (the search endpoint itself doesn't
     include variants).
-    Non-USD stores (Kongs Cards, The Card Vault are GBP) get a `currency=USD`
-    query param on every request - Shopify Markets honors this and returns
-    the merchant's own real converted price (their actual configured rate
-    and markup), not just a raw amount in their base currency.
+    Prices are fetched in the store's native currency for `price`/`currency`
+    - used for price-drop comparisons - rather than Shopify's converted USD
+    figure, which drifts by a dollar or two over the course of a day purely
+    from the live exchange rate updating (seen in practice on Kongs Cards:
+    repeated false "price drop" alerts between $168/$169 while the actual
+    GBP price never changed). `usd_price` is a second, separate value used
+    only for display, fetched via Shopify's `currency=USD` param - the
+    merchant's own real converted price (actual configured rate/markup),
+    not an estimate.
     """
     products = []
     base = site["base_url"].rstrip("/")
@@ -136,7 +137,6 @@ def parse_shopify(site, keyword):
         "resources[type]": "product",
         "resources[limit]": 50,
         "resources[options][unavailable_products]": "show",
-        "currency": "USD",
     }
     r = requests.get(search_url, headers=HEADERS, params=params, timeout=15)
     r.raise_for_status()
@@ -163,23 +163,40 @@ def parse_shopify(site, keyword):
         if keyword.lower() not in haystack:
             continue
 
-        pr = requests.get(
-            f"{base}/products/{handle}.json",
-            headers=HEADERS,
-            params={"currency": "USD"},
-            timeout=15,
-        )
+        pr = requests.get(f"{base}/products/{handle}.json", headers=HEADERS, timeout=15)
         if pr.status_code != 200:
             continue
         p = pr.json().get("product")
         if not p:
             continue
-        for variant in p.get("variants", []):
+
+        variants = p.get("variants", [])
+        native_currency = (variants[0].get("price_currency") if variants else None) or "USD"
+
+        usd_prices_by_variant = {}
+        if native_currency != "USD":
+            pr_usd = requests.get(
+                f"{base}/products/{handle}.json",
+                headers=HEADERS,
+                params={"currency": "USD"},
+                timeout=15,
+            )
+            if pr_usd.status_code == 200:
+                p_usd = pr_usd.json().get("product") or {}
+                usd_prices_by_variant = {v["id"]: v.get("price") for v in p_usd.get("variants", [])}
+
+        for variant in variants:
+            native_price = variant.get("price")
+            if native_currency == "USD":
+                usd_price = native_price
+            else:
+                usd_price = usd_prices_by_variant.get(variant["id"], native_price)
             products.append({
                 "id": f"{p['id']}-{variant['id']}",
                 "name": f"{p['title']} ({variant.get('title','Default')})".replace(" (Default Title)", ""),
-                "price": variant.get("price"),
-                "currency": variant.get("price_currency") or "USD",
+                "price": native_price,
+                "currency": native_currency,
+                "usd_price": usd_price,
                 "in_stock": variant_is_available(variant, m.get("available")),
                 "url": f"{base}/products/{p.get('handle')}",
             })
@@ -231,6 +248,7 @@ def parse_html(site, keyword):
             "name": name,
             "price": price,
             "currency": site.get("currency", "USD"),
+            "usd_price": price,
             "in_stock": in_stock,
             "url": url,
         })
@@ -280,6 +298,7 @@ def parse_bigcommerce_bodl(site, keyword):
             "name": name,
             "price": item.get("purchase_price"),
             "currency": item.get("currency") or site.get("currency", "USD"),
+            "usd_price": item.get("purchase_price"),
             "in_stock": quantity is None or quantity > 0,
             "url": site["url"],
         })
@@ -407,8 +426,7 @@ def generate_dashboard(state, sites):
             grid[site_name][category] = {
                 "in_stock": entry["in_stock"],
                 "url": entry["url"],
-                "price": entry["price"],
-                "currency": entry.get("currency", "USD"),
+                "usd_price": entry.get("usd_price", entry["price"]),
             }
 
     updated = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d %I:%M %p %Z")
@@ -425,7 +443,7 @@ def generate_dashboard(state, sites):
             if cell is None:
                 cells.append('<td class="not-carried">&mdash;</td>')
             elif cell["in_stock"]:
-                price_str = f' {escape(format_price(cell["price"], cell["currency"]))}' if cell["price"] else ""
+                price_str = f' {escape(format_price(cell["usd_price"]))}' if cell["usd_price"] else ""
                 cells.append(
                     f'<td class="in-stock"><a href="{escape(cell["url"])}" '
                     f'target="_blank" rel="noopener">&check;{price_str}</a></td>'
@@ -533,6 +551,7 @@ def main():
                 "in_stock": p["in_stock"],
                 "price": p["price"],
                 "currency": p.get("currency", "USD"),
+                "usd_price": p.get("usd_price", p["price"]),
             }
 
             is_new_listing = prev is None
@@ -560,11 +579,11 @@ def main():
                 else:
                     tag = "PRICE DROP"
 
-                currency = p.get("currency", "USD")
                 if tag == "PRICE DROP":
-                    price_str = f"{format_price(prev['price'], prev.get('currency', currency))} -> {format_price(p['price'], currency)}"
+                    prev_usd = prev.get("usd_price", prev["price"])
+                    price_str = f"{format_price(prev_usd)} -> {format_price(p.get('usd_price', p['price']))}"
                 else:
-                    price_str = format_price(p["price"], currency)
+                    price_str = format_price(p.get("usd_price", p["price"]))
 
                 alerts.append(
                     f"[{tag}] {site['name']}: {p['name']} - {price_str}\n{p['url']}"
