@@ -370,7 +370,15 @@ def classify_product(name):
     character sleeves, playmats, etc.) or something else entirely.
     """
     n = name.lower()
-    if "case" in n or "display" in n or re.search(r"\bbooster pack\b(?!s)", n):
+    # "display box" is some stores' own name for the ordinary single retail
+    # box, not a multi-box bundle - confirmed via Gamers Guild AZ's own
+    # product description ("12 packs per box, 12 boxes per case") for their
+    # "Dawn of Palpagos - Booster Display Box". Word order matters: only
+    # exclude bare "display" usages ("[x6] Trial Deck Display", "... Box
+    # Display", "Booster Display Case") which really are bulk multiples.
+    is_bulk_case = "case" in n
+    is_bulk_display = "display" in n and "display box" not in n
+    if is_bulk_case or is_bulk_display or re.search(r"\bbooster pack\b(?!s)", n):
         return None
 
     has_dop = "dawn of palpagos" in n
@@ -379,7 +387,10 @@ def classify_product(name):
     # officially "Eternal Ascent" - keep matching both in case any store
     # still shows the old placeholder text.
     has_set3 = "set 3" in n or "eternal ascent" in n
-    has_box = "booster box" in n
+    # "display box" (Gamers Guild AZ, Moonlight) doesn't contain the literal
+    # substring "booster box" - "display" sits in between - so it needs its
+    # own check even though it's the same single-unit product.
+    has_box = "booster box" in n or "display box" in n
     has_td = "trial deck" in n
     has_red = "red" in n
     has_blue = "blue" in n
