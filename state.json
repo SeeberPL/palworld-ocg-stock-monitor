@@ -927,7 +927,7 @@
   },
   "Topspot Cards::9242890240138-49879050158218": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Eternal Ascent (EN) 144x OPENED Packs",
     "price": "540.00",
     "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-case-en-anti-scalper",
@@ -935,7 +935,7 @@
   },
   "Topspot Cards::9242890961034-49879050879114": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Eternal Ascent (EN) 12x OPENED Packs",
     "price": "45.00",
     "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-box-en-anti-scalper",
@@ -967,11 +967,11 @@
   },
   "VGMX::10293365113146-53459200540986": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG| Dawn of Palpagos: Trial Deck: Red & Blue",
-    "price": "19.99",
+    "price": "29.99",
     "url": "https://vgmx.com/products/palworld-tcg-dawn-of-palpagos-trial-deck-red-blue",
-    "usd_price": "19.99"
+    "usd_price": "29.99"
   },
   "VGMX::10293365768506-53459210993978": {
     "currency": "USD",
