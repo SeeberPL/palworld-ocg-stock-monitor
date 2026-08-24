@@ -927,7 +927,7 @@
   },
   "Topspot Cards::9242890240138-49879050158218": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Eternal Ascent (EN) 144x OPENED Packs",
     "price": "540.00",
     "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-case-en-anti-scalper",
@@ -935,7 +935,7 @@
   },
   "Topspot Cards::9242890961034-49879050879114": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Eternal Ascent (EN) 12x OPENED Packs",
     "price": "45.00",
     "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-box-en-anti-scalper",
