@@ -97,7 +97,7 @@
   },
   "Flipside Gaming::8241132437538-44846002896930": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos - Green-Purple Trial Deck",
     "price": "31.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-green-purple-trial-deck",
@@ -105,7 +105,7 @@
   },
   "Flipside Gaming::8241132470306-44846002929698": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos - Green-Purple [x6] Trial Deck Display",
     "price": "189.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-green-purple-x6-trial-deck-display",
@@ -113,7 +113,7 @@
   },
   "Flipside Gaming::8241132503074-44846002962466": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos - Blue-Red Trial Deck",
     "price": "31.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-blue-red-trial-deck",
@@ -121,7 +121,7 @@
   },
   "Flipside Gaming::8241132568610-44846003028002": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos - Blue-Red [x6] Trial Deck Display",
     "price": "189.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-blue-red-x6-trial-deck-display",
@@ -927,7 +927,7 @@
   },
   "Topspot Cards::9242890240138-49879050158218": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Eternal Ascent (EN) 144x OPENED Packs",
     "price": "540.00",
     "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-case-en-anti-scalper",
@@ -935,7 +935,7 @@
   },
   "Topspot Cards::9242890961034-49879050879114": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Eternal Ascent (EN) 12x OPENED Packs",
     "price": "45.00",
     "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-box-en-anti-scalper",
