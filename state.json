@@ -823,11 +823,11 @@
   },
   "The Card Vault::9161470279918-47666928353518": {
     "currency": "GBP",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Red-Blue Trial Deck",
-    "price": "17.95",
+    "price": "24.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-red-and-blue-trial-deck",
-    "usd_price": "25.00"
+    "usd_price": "35.00"
   },
   "The Card Vault::9161474506990-47666946441454": {
     "currency": "GBP",
