@@ -233,7 +233,7 @@
   },
   "Game Nerdz::BUSPOCGBP01-CASE": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game: Dawn of Palpagos - Booster Box (Sealed Case) 1st Edition",
     "price": 2179.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -729,7 +729,7 @@
   },
   "Moonlight Collectibles::9418630725884-50919000899836": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game Sleeve & Card Set Vol. 1",
     "price": "49.99",
     "url": "https://moonlightsls.com/products/palworld-official-card-game-sleeve-card-set-vol-1",
