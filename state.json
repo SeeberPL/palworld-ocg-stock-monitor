@@ -452,14 +452,16 @@
     "in_stock": false,
     "name": "Palworld OCG: Sleeve Collection - Palworld Logo 75ct (Pre-Order)",
     "price": "10.50",
-    "url": "https://gamersguildaz.com/products/palworld-ocg-sleeve-collection-palworld-logo-75ct"
+    "url": "https://gamersguildaz.com/products/palworld-ocg-sleeve-collection-palworld-logo-75ct",
+    "usd_price": "10.50"
   },
   "Gamers Guild AZ::15016642937195-53268685324651": {
     "currency": "USD",
     "in_stock": false,
     "name": "Palworld OCG: Deck Holder Collection - Goddess' Blessing Lyleen (Pre-Order)",
     "price": "28.00",
-    "url": "https://gamersguildaz.com/products/palworld-ocg-deck-holder-collection-goddess-blessing-lyleen"
+    "url": "https://gamersguildaz.com/products/palworld-ocg-deck-holder-collection-goddess-blessing-lyleen",
+    "usd_price": "28.00"
   },
   "Gamers Guild AZ::15067667267947-53408148193643": {
     "currency": "USD",
