@@ -409,9 +409,14 @@ def classify_product(name):
         return "TD01"
     if has_td and has_green and has_purple:
         return "TD02"
-    if has_set3 and has_td and ("trial deck 3" in n or "td03" in n):
+    # Eternal Ascent's trial decks are Red/Green (TD03) and Blue/Purple
+    # (TD04) - some stores (Game Nerdz) name them by color pair only, with
+    # no "TD03"/"TD04"/"Trial Deck 3" text anywhere in the product name
+    # (only in their internal SKU, which classify_product never sees), so
+    # the explicit marker check alone missed them.
+    if has_set3 and has_td and (("trial deck 3" in n or "td03" in n) or (has_red and has_green)):
         return "TD03"
-    if has_set3 and has_td and ("trial deck 4" in n or "td04" in n):
+    if has_set3 and has_td and (("trial deck 4" in n or "td04" in n) or (has_blue and has_purple)):
         return "TD04"
     if has_sleeve and has_card_set:
         return "SLEEVE"
