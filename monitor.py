@@ -370,14 +370,17 @@ def classify_product(name):
     character sleeves, playmats, etc.) or something else entirely.
     """
     n = name.lower()
-    # "display box" is some stores' own name for the ordinary single retail
-    # box, not a multi-box bundle - confirmed via Gamers Guild AZ's own
-    # product description ("12 packs per box, 12 boxes per case") for their
-    # "Dawn of Palpagos - Booster Display Box". Word order matters: only
-    # exclude bare "display" usages ("[x6] Trial Deck Display", "... Box
-    # Display", "Booster Display Case") which really are bulk multiples.
+    # "Booster Display" (with or without a trailing "Box") is some stores'
+    # own name for the ordinary single retail box, not a multi-box bundle -
+    # confirmed via product descriptions: Gamers Guild AZ's "Booster Display
+    # Box" ("12 packs per box, 12 boxes per case") and Lazarus Games' bare
+    # "Booster Display" ("12 Packs per Display") are both the standard
+    # single box. Only exclude "display" when it's NOT immediately preceded
+    # by "booster" - that still catches genuine bulk multiples ("[x6] Trial
+    # Deck Display", "... Box Display" (reversed order), "Display (6
+    # Sets)"), and "Booster Display Case" still correctly excludes via case.
     is_bulk_case = "case" in n
-    is_bulk_display = "display" in n and "display box" not in n
+    is_bulk_display = "display" in n and "booster display" not in n
     if is_bulk_case or is_bulk_display or re.search(r"\bbooster pack\b(?!s)", n):
         return None
 
@@ -387,10 +390,10 @@ def classify_product(name):
     # officially "Eternal Ascent" - keep matching both in case any store
     # still shows the old placeholder text.
     has_set3 = "set 3" in n or "eternal ascent" in n
-    # "display box" (Gamers Guild AZ, Moonlight) doesn't contain the literal
-    # substring "booster box" - "display" sits in between - so it needs its
-    # own check even though it's the same single-unit product.
-    has_box = "booster box" in n or "display box" in n
+    # "booster display" (see note above) doesn't contain the literal
+    # substring "booster box" - needs its own check even though it's the
+    # same single-unit product.
+    has_box = "booster box" in n or "booster display" in n
     has_td = "trial deck" in n
     has_red = "red" in n
     has_blue = "blue" in n
