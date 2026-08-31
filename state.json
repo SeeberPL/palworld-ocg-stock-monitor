@@ -642,10 +642,10 @@
   "Lumius Inc::9399701930232-47961318097144": {
     "currency": "USD",
     "in_stock": false,
-    "name": "PRE-ORDER Palworld Official Card Game \"Dawn of Palpagos\" BP01 Booster Box (Booster Box (12 Booster packs))",
-    "price": "44.99",
+    "name": "PRE-ORDER Palworld Official Card Game \"Dawn of Palpagos\" BP01 ENGLISH Booster Box",
+    "price": "99.99",
     "url": "https://lumiusinc.com/products/pre-order-palworld-official-card",
-    "usd_price": "44.99"
+    "usd_price": "99.99"
   },
   "Lumius Inc::9399701930232-47961318129912": {
     "currency": "USD",
@@ -853,7 +853,7 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Booster Box (12x Packs)",
     "price": "45.45",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-booster-box-12x-packs",
-    "usd_price": "45.45"
+    "usd_price": "63.00"
   },
   "The Card Vault::9161468379374-47666918392046": {
     "currency": "GBP",
@@ -869,7 +869,7 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Display Case (12x Booster Boxes)",
     "price": "544.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-display-case-12x-booster-boxes",
-    "usd_price": "753.00"
+    "usd_price": "754.00"
   },
   "The Card Vault::9161470279918-47666928353518": {
     "currency": "GBP",
@@ -961,7 +961,7 @@
   },
   "Topspot Cards::9242887815306-49879047733386": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Preorder: TD04 Eternal Ascent Blue\u30fbPurple Trial Deck Display (EN)",
     "price": "110.00",
     "url": "https://topspot.cards/products/palworld-td04-eternal-ascent-blue-purple-trial-deck-display-en",
@@ -977,7 +977,7 @@
   },
   "Topspot Cards::9242890240138-49879050158218": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Eternal Ascent (EN) 144x OPENED Packs",
     "price": "540.00",
     "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-case-en-anti-scalper",
@@ -1001,7 +1001,7 @@
   },
   "Topspot Cards::9242970292362-49879391273098": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "FACTORY SEALED Preorder READ DESCRIPTION: BP03 Eternal Ascent Booster Box (EN)",
     "price": "60.00",
     "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-box-en",
