@@ -81,7 +81,7 @@
   },
   "Flipside Gaming::8241132372002-44846002733090": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos Booster Box",
     "price": "164.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-booster-box",
@@ -89,7 +89,7 @@
   },
   "Flipside Gaming::8241132404770-44846002765858": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos  [x12] Booster Case",
     "price": "1999.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-x12-booster-case",
@@ -541,7 +541,7 @@
     "name": "Palworld Official Card Game - Dawn of Palpagos - Booster Box (12 Packs)",
     "price": "114.99",
     "url": "https://kongscards.co.uk/products/palworld-official-card-game-dawn-of-palpagos-booster-box-12-packs",
-    "usd_price": "167.00"
+    "usd_price": "166.00"
   },
   "Kongs Cards::15984306880893-58494540874109": {
     "currency": "GBP",
