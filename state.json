@@ -245,6 +245,22 @@
     "price": 15.97,
     "url": "https://www.gamenerdz.com/palworld/"
   },
+  "Game Nerdz::BUSPOCGBP01E2": {
+    "currency": "USD",
+    "in_stock": true,
+    "name": "Palworld Official Card Game: Dawn of Palpagos - Booster Box 2nd Edition (PREORDER)",
+    "price": 44.97,
+    "url": "https://www.gamenerdz.com/palworld/",
+    "usd_price": 44.97
+  },
+  "Game Nerdz::BUSPOCGBP01E2-CASE": {
+    "currency": "USD",
+    "in_stock": true,
+    "name": "Palworld Official Card Game: Dawn of Palpagos - Booster Box 2nd Edition (Sealed Case) (PREORDER)",
+    "price": 519.97,
+    "url": "https://www.gamenerdz.com/palworld/",
+    "usd_price": 519.97
+  },
   "Game Nerdz::BUSPOCGBP02": {
     "currency": "USD",
     "in_stock": true,
