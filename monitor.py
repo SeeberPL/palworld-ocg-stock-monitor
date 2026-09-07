@@ -590,22 +590,7 @@ def main():
                 and curr_price < prev_price
             )
 
-            # Only alert for the core items the dashboard actually tracks.
-            # Bulk/variant listings (cases, displays, single packs) are
-            # excluded from classify_product() for good reason, but they
-            # still got alerted on before this check - and some stores
-            # (seen on Topspot: a bulk "Trial Deck Display" and a
-            # quantity-limited "ANTI-SCALPER ... OPENED Packs" listing)
-            # genuinely toggle their own availability flag back and forth
-            # over hours, likely deliberate inventory gating on their end.
-            # That's real store behavior, not a scrape bug, but it has no
-            # business generating repeated "restock" alerts for a product
-            # you were never trying to track in the first place.
-            if (
-                classify_product(p["name"])
-                and p["in_stock"]
-                and (is_new_listing or restocked or price_dropped)
-            ):
+            if p["in_stock"] and (is_new_listing or restocked or price_dropped):
                 if is_new_listing:
                     tag = "NEW"
                 elif restocked:
