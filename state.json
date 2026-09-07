@@ -1054,5 +1054,29 @@
     "price": "5.49",
     "url": "https://vgmx.com/products/palworld-tcg-dawn-of-palpagos-booster-pack",
     "usd_price": "5.49"
+  },
+  "VGMX::10413658603834-53968089219386": {
+    "currency": "USD",
+    "in_stock": true,
+    "name": "Palworld TCG| Legends Awaken - Booster Box (Limit 1 Per Customer)",
+    "price": "109.99",
+    "url": "https://vgmx.com/products/palworld-tcg-legends-awaken-booster-box",
+    "usd_price": "109.99"
+  },
+  "VGMX::10413659128122-53968092168506": {
+    "currency": "USD",
+    "in_stock": true,
+    "name": "Palworld TCG| Legends Awaken - Booster Pack (Limit 6 Per Customer)",
+    "price": "5.99",
+    "url": "https://vgmx.com/products/palworld-tcg-legends-awaken-booster-pack",
+    "usd_price": "5.99"
+  },
+  "VGMX::10413660668218-53968103932218": {
+    "currency": "USD",
+    "in_stock": true,
+    "name": "Palworld TCG| Sleeve & Card Set Vol. 1 (Limit 1 Per Customer)",
+    "price": "27.99",
+    "url": "https://vgmx.com/products/palworld-tcg-sleeve-card-set-vol-1",
+    "usd_price": "27.99"
   }
 }
