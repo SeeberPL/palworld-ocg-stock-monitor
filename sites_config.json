@@ -11,7 +11,12 @@
       "name": "Topspot Cards",
       "type": "shopify",
       "base_url": "https://topspot.cards",
-      "enabled": true
+      "enabled": true,
+      "alert_exclude_ids": [
+        "9242887815306-49879047733386",
+        "9242890240138-49879050158218"
+      ],
+      "_note": "These two listings (a bulk 'TD04 ... Trial Deck Display' and an ANTI-SCALPER 'OPENED Packs' listing) genuinely toggle their own availability every few hours - looks like deliberate quantity-limited preorder gating on Topspot's end, not a scrape bug. Excluded from alerts by product ID (stable even if the listing gets renamed), not by category - state.json still tracks them normally, just silenced for notifications specifically."
     },
     {
       "name": "VGMX",

@@ -180,3 +180,11 @@ the repo is public):
   unless you want a fresh (silent) baseline; deleting it does NOT send
   an "everything looks new" email, since the first run after a reset is
   intentionally silent.
+- If a specific listing keeps generating repeat alerts because the store
+  itself toggles its availability back and forth (seen on Topspot: a bulk
+  "Trial Deck Display" and an ANTI-SCALPER quantity-limited listing,
+  likely deliberate preorder gating on their end), add its product ID to
+  that site's `alert_exclude_ids` in `sites_config.json`. It's matched by
+  ID rather than name/category, so a store renaming the listing later
+  won't silently break the exclusion, and it only silences alerts -
+  `state.json` still tracks the item normally either way.

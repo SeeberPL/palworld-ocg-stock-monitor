@@ -590,7 +590,15 @@ def main():
                 and curr_price < prev_price
             )
 
-            if p["in_stock"] and (is_new_listing or restocked or price_dropped):
+            # A small number of specific listings (identified by product ID,
+            # not category - see each site's alert_exclude_ids in
+            # sites_config.json) are known to toggle their own availability
+            # repeatedly - e.g. a store's own quantity-limited preorder
+            # gating - and get silenced here so they don't spam repeat
+            # alerts. They're still tracked in state.json normally.
+            is_alert_excluded = p["id"] in site.get("alert_exclude_ids", [])
+
+            if not is_alert_excluded and p["in_stock"] and (is_new_listing or restocked or price_dropped):
                 if is_new_listing:
                     tag = "NEW"
                 elif restocked:
