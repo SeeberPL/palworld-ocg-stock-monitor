@@ -295,7 +295,7 @@
   },
   "Game Nerdz::BUSPOCGDHC1270": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Dragon Caller Chillet - Deck Holder Collection V3 #321",
     "price": 9.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -303,7 +303,7 @@
   },
   "Game Nerdz::BUSPOCGDHC1271": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Goddess' Blessing Lyleen - Deck Holder Collection V3 #321",
     "price": 9.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -311,7 +311,7 @@
   },
   "Game Nerdz::BUSPOCGRMC2093": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Dragon Caller Chillet - Playmat Collection V2 #509",
     "price": 31.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -319,7 +319,7 @@
   },
   "Game Nerdz::BUSPOCGRMC2094": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Goddess' Blessing Lyleen - Playmat Collection V2 #509",
     "price": 31.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -327,7 +327,7 @@
   },
   "Game Nerdz::BUSPOCGSC5203": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Palworld Logo - Sleeve Collection HG #934 (75ct)",
     "price": 18.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -335,7 +335,7 @@
   },
   "Game Nerdz::BUSPOCGSC5204": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Dragon Caller Chillet - Sleeve Collection HG #935 (75ct)",
     "price": 18.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -343,7 +343,7 @@
   },
   "Game Nerdz::BUSPOCGSC5205": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Goddess' Blessing Lyleen - Sleeve Collection HG #935 (75ct)",
     "price": 18.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -351,7 +351,7 @@
   },
   "Game Nerdz::BUSPOCGSC5206": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Mage of the Abyss Katress - Sleeve Collection HG #935 (75ct)",
     "price": 18.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -359,7 +359,7 @@
   },
   "Game Nerdz::BUSPOCGSC5207": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: First Pal Cattiva - Sleeve Collection HG #935 (75ct)",
     "price": 18.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -1009,7 +1009,7 @@
   },
   "Topspot Cards::9242887815306-49879047733386": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Preorder: TD04 Eternal Ascent Blue\u30fbPurple Trial Deck Display (EN)",
     "price": "120.00",
     "url": "https://topspot.cards/products/palworld-td04-eternal-ascent-blue-purple-trial-deck-display-en",
