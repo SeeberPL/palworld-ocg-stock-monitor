@@ -233,7 +233,7 @@
   },
   "Game Nerdz::BUSPOCGBP01-CASE": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Dawn of Palpagos - Booster Box (Sealed Case) 1st Edition",
     "price": 2179.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -276,6 +276,22 @@
     "price": 1399.97,
     "url": "https://www.gamenerdz.com/palworld/",
     "usd_price": 1399.97
+  },
+  "Game Nerdz::BUSPOCGBP03": {
+    "currency": "USD",
+    "in_stock": false,
+    "name": "Palworld Official Card Game: Eternal Ascent - Booster Box (PREORDERS OPEN NOVEMBER 6TH)",
+    "price": 44.97,
+    "url": "https://www.gamenerdz.com/palworld/",
+    "usd_price": 44.97
+  },
+  "Game Nerdz::BUSPOCGBP03-CASE": {
+    "currency": "USD",
+    "in_stock": false,
+    "name": "Palworld Official Card Game: Eternal Ascent - Booster Box (Sealed Case) (PREORDERS OPEN NOVEMBER 6TH)",
+    "price": 529.97,
+    "url": "https://www.gamenerdz.com/palworld/",
+    "usd_price": 529.97
   },
   "Game Nerdz::BUSPOCGDHC1270": {
     "currency": "USD",
