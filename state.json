@@ -929,7 +929,7 @@
   },
   "The Card Vault::9161474506990-47666946441454": {
     "currency": "GBP",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Green-Purple Trial Deck",
     "price": "29.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-green-purple-trial-deck",
@@ -965,7 +965,7 @@
     "name": "Palworld Official Card Game - Sleeve & Card Set - Vol. 1",
     "price": "26.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-sleeve-card-set-vol-1",
-    "usd_price": "26.95"
+    "usd_price": "38.00"
   },
   "The Card Vault::9510237208814-49566057562350": {
     "currency": "GBP",
