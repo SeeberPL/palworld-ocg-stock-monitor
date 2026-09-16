@@ -449,7 +449,7 @@
   },
   "Gamers Getaway KC::10591342199072-52340370964768": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "10/3 Palworld Grand Challengers Cup Event Entry",
     "price": "10.00",
     "url": "https://gamersgetawaykc.com/products/9-11-cyberpunk-tcg-beta-release-event-entry-copy",
@@ -865,7 +865,7 @@
   },
   "Moonlight Collectibles::9418638983420-50919014465788": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game Legends Awaken Booster Display Box",
     "price": "140.99",
     "url": "https://moonlightsls.com/products/palworld-official-card-game-legends-awaken-booster-display-box",
@@ -965,7 +965,7 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Green-Purple Trial Deck",
     "price": "29.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-green-purple-trial-deck",
-    "usd_price": "42.00"
+    "usd_price": "29.95"
   },
   "The Card Vault::9320369488110-48165374656750": {
     "currency": "GBP",
@@ -1081,7 +1081,7 @@
   },
   "Topspot Cards::9242890961034-49879050879114": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "ANTI-SCALPER Preorder READ DESCRIPTION: BP03 Eternal Ascent (EN) 12x OPENED Packs",
     "price": "45.00",
     "url": "https://topspot.cards/products/palworld-bp03-eternal-ascent-booster-box-en-anti-scalper",
