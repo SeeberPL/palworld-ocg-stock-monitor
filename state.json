@@ -433,7 +433,7 @@
   },
   "Gamers Getaway KC::10566866010400-52254199841056": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "12/18/26 PRE-ORDER: Palworld: Eternal Ascent 1st Edition Trial Deck (Red-Green)",
     "price": "24.99",
     "url": "https://gamersgetawaykc.com/products/palworld-eternal-ascent-1st-edition-trial-deck",
@@ -441,7 +441,7 @@
   },
   "Gamers Getaway KC::10566866010400-52254199873824": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "12/18/26 PRE-ORDER: Palworld: Eternal Ascent 1st Edition Trial Deck (Blue-Purple)",
     "price": "24.99",
     "url": "https://gamersgetawaykc.com/products/palworld-eternal-ascent-1st-edition-trial-deck",
@@ -605,7 +605,7 @@
     "name": "Palworld Official Card Game - Dawn of Palpagos - Booster Box (12 Packs)",
     "price": "99.99",
     "url": "https://kongscards.co.uk/products/palworld-official-card-game-dawn-of-palpagos-booster-box-12-packs",
-    "usd_price": "143.00"
+    "usd_price": "144.00"
   },
   "Kongs Cards::15984306880893-58494540874109": {
     "currency": "GBP",
