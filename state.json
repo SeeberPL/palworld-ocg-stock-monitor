@@ -281,17 +281,17 @@
     "currency": "USD",
     "in_stock": false,
     "name": "Palworld Official Card Game: Eternal Ascent - Booster Box (PREORDERS OPEN NOVEMBER 6TH)",
-    "price": 44.97,
+    "price": 49.97,
     "url": "https://www.gamenerdz.com/palworld/",
-    "usd_price": 44.97
+    "usd_price": 49.97
   },
   "Game Nerdz::BUSPOCGBP03-CASE": {
     "currency": "USD",
     "in_stock": false,
     "name": "Palworld Official Card Game: Eternal Ascent - Booster Box (Sealed Case) (PREORDERS OPEN NOVEMBER 6TH)",
-    "price": 529.97,
+    "price": 594.97,
     "url": "https://www.gamenerdz.com/palworld/",
-    "usd_price": 529.97
+    "usd_price": 594.97
   },
   "Game Nerdz::BUSPOCGDHC1270": {
     "currency": "USD",
@@ -374,16 +374,20 @@
     "usd_price": 29.97
   },
   "Game Nerdz::BUSPOCGTD01": {
-    "in_stock": false,
+    "currency": "USD",
+    "in_stock": true,
     "name": "Palworld Official Card Game: Dawn of Palpagos - Red/Blue - Trial Deck",
-    "price": 49.97,
-    "url": "https://www.gamenerdz.com/palworld/"
+    "price": 24.97,
+    "url": "https://www.gamenerdz.com/palworld/",
+    "usd_price": 24.97
   },
   "Game Nerdz::BUSPOCGTD02": {
-    "in_stock": false,
+    "currency": "USD",
+    "in_stock": true,
     "name": "Palworld Official Card Game: Dawn of Palpagos - Green/Purple - Trial Deck",
-    "price": 49.97,
-    "url": "https://www.gamenerdz.com/palworld/"
+    "price": 24.97,
+    "url": "https://www.gamenerdz.com/palworld/",
+    "usd_price": 24.97
   },
   "Game Nerdz::BUSPOCGTD03": {
     "currency": "USD",
