@@ -129,19 +129,19 @@
   },
   "Flipside Gaming::8554595057698-46064434610210": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Legends Awaken (BP02) Booster Box",
-    "price": "63.95",
+    "price": "99.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-legends-awaken-bp02-booster-box",
-    "usd_price": "63.95"
+    "usd_price": "99.99"
   },
   "Flipside Gaming::8554595090466-46064434642978": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Legends Awaken (BP02) [x12] Booster Case",
-    "price": "752.95",
+    "price": "1184.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-legends-awaken-bp02-x12-booster-case",
-    "usd_price": "752.95"
+    "usd_price": "1184.99"
   },
   "Flipside Gaming::8578589622306-46322567348258": {
     "currency": "USD",
@@ -685,7 +685,7 @@
   },
   "Lazarus Games::15881964093600-58942411866272": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Eternal Ascent Booster Display (12 Packs) (presale)",
     "price": "54.95",
     "url": "https://lazarus-games.com/products/palworld-ocg-eternal-ascent-booster-display-12-packs",
