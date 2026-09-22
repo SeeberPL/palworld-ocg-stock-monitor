@@ -677,19 +677,19 @@
   },
   "Lazarus Games::15881964028064-58942411800736": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Eternal Ascent Booster Case (12 Displays) (presale)",
-    "price": "649.95",
+    "price": "774.95",
     "url": "https://lazarus-games.com/products/palworld-ocg-eternal-ascent-booster-case-12-displays",
-    "usd_price": "649.95"
+    "usd_price": "774.95"
   },
   "Lazarus Games::15881964093600-58942411866272": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Eternal Ascent Booster Display (12 Packs) (presale)",
-    "price": "54.95",
+    "price": "64.95",
     "url": "https://lazarus-games.com/products/palworld-ocg-eternal-ascent-booster-display-12-packs",
-    "usd_price": "54.95"
+    "usd_price": "64.95"
   },
   "Lazarus Games::15881964159136-58942411931808": {
     "currency": "USD",
