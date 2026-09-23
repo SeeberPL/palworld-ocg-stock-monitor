@@ -161,7 +161,7 @@
   },
   "Game Nerdz::BUSBSCS01A": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game: Grizzbolt - Rumbling Tank - Card Sleeves (75ct) (PREORDER)",
     "price": 19.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -177,7 +177,7 @@
   },
   "Game Nerdz::BUSBSCS01C": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game: Petallia - Sweet Blessings - Card Sleeves (75ct) (PREORDER)",
     "price": 19.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -225,7 +225,7 @@
   },
   "Game Nerdz::BUSPOCGBP01": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game: Dawn of Palpagos - Booster Box 1st Edition",
     "price": 179.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -233,7 +233,7 @@
   },
   "Game Nerdz::BUSPOCGBP01-CASE": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game: Dawn of Palpagos - Booster Box (Sealed Case) 1st Edition",
     "price": 2179.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -263,7 +263,7 @@
   },
   "Game Nerdz::BUSPOCGBP02": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game: Legends Awaken - Booster Box (PREORDER)",
     "price": 119.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -343,7 +343,7 @@
   },
   "Game Nerdz::BUSPOCGSC5205": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game: Goddess' Blessing Lyleen - Sleeve Collection HG #935 (75ct)",
     "price": 18.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -359,7 +359,7 @@
   },
   "Game Nerdz::BUSPOCGSC5207": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game: First Pal Cattiva - Sleeve Collection HG #935 (75ct)",
     "price": 18.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -375,7 +375,7 @@
   },
   "Game Nerdz::BUSPOCGTD01": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game: Dawn of Palpagos - Red/Blue - Trial Deck",
     "price": 24.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -383,7 +383,7 @@
   },
   "Game Nerdz::BUSPOCGTD02": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game: Dawn of Palpagos - Green/Purple - Trial Deck",
     "price": 24.97,
     "url": "https://www.gamenerdz.com/palworld/",
