@@ -1197,11 +1197,11 @@
   },
   "VGMX::10293365768506-53459210993978": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG| Dawn of Palpagos: Booster Box",
-    "price": "59.99",
+    "price": "119.99",
     "url": "https://vgmx.com/products/palworld-tcg-dawn-of-palpagos-booster-box",
-    "usd_price": "59.99"
+    "usd_price": "119.99"
   },
   "VGMX::10293366227258-53459218334010": {
     "currency": "USD",
