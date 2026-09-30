@@ -453,7 +453,7 @@
   },
   "Gamers Getaway KC::10591342199072-52340370964768": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "10/3 Palworld Grand Challengers Cup Event Entry",
     "price": "10.00",
     "url": "https://gamersgetawaykc.com/products/9-11-cyberpunk-tcg-beta-release-event-entry-copy",
@@ -933,7 +933,7 @@
   },
   "Moonlight Collectibles::9418638983420-50919014465788": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game Legends Awaken Booster Display Box",
     "price": "140.99",
     "url": "https://moonlightsls.com/products/palworld-official-card-game-legends-awaken-booster-display-box",
