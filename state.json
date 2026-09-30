@@ -453,7 +453,7 @@
   },
   "Gamers Getaway KC::10591342199072-52340370964768": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "10/3 Palworld Grand Challengers Cup Event Entry",
     "price": "10.00",
     "url": "https://gamersgetawaykc.com/products/9-11-cyberpunk-tcg-beta-release-event-entry-copy",
@@ -469,7 +469,7 @@
   },
   "Gamers Guild AZ::14895486042475-52895348130155": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld OCG: Dawn of Palpagos - Booster Display Box",
     "price": "124.24",
     "url": "https://gamersguildaz.com/products/palworld-ocg-dawn-of-palpagos-booster-display",
@@ -1041,7 +1041,7 @@
     "name": "Palworld Official Card Game - Set 02 - Legends Awaken - Booster Box (12x Packs)",
     "price": "45.55",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-legends-awaken-booster-box-12x-packs",
-    "usd_price": "62.00"
+    "usd_price": "45.55"
   },
   "The Card Vault::9320377385198-48165397168366": {
     "currency": "GBP",
