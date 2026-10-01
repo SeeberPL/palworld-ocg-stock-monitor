@@ -605,7 +605,7 @@
   },
   "Gamers Guild AZ::15238521520491-53833833021803": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "NPHX - 10/18 @ 11:30am - Palworld Card Game Sealed Event",
     "price": "35.00",
     "url": "https://gamersguildaz.com/products/nphx-10-18-11-30am-palworld-card-game-sealed-event",
@@ -933,7 +933,7 @@
   },
   "Moonlight Collectibles::9418638983420-50919014465788": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game Legends Awaken Booster Display Box",
     "price": "140.99",
     "url": "https://moonlightsls.com/products/palworld-official-card-game-legends-awaken-booster-display-box",
@@ -1017,7 +1017,7 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Display Case (12x Booster Boxes)",
     "price": "544.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-display-case-12x-booster-boxes",
-    "usd_price": "737.00"
+    "usd_price": "736.00"
   },
   "The Card Vault::9161470279918-47666928353518": {
     "currency": "GBP",
