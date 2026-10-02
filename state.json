@@ -89,7 +89,7 @@
   },
   "Flipside Gaming::8241132404770-44846002765858": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos  [x12] Booster Case",
     "price": "1999.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-x12-booster-case",
@@ -161,7 +161,7 @@
   },
   "Flipside Gaming::8608131088418-46551152295970": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Eternal Ascent [Blue-Purple] [x6] Trial Deck Display",
     "price": "109.95",
     "url": "https://flipsidegaming.com/products/palworld-tcg-eternal-ascent-blue-purple-x6-trial-deck-display",
@@ -202,7 +202,7 @@
   "Game Nerdz::BUSBSRPM22A": {
     "currency": "USD",
     "in_stock": false,
-    "name": "Palworld Official Card Game: Petallia - Sweet Blessings - Playmat (PREORDER)",
+    "name": "Palworld Official Card Game: Petallia - Sweet Blessings - Playmat",
     "price": 44.47,
     "url": "https://www.gamenerdz.com/palworld/",
     "usd_price": 44.47
@@ -210,7 +210,7 @@
   "Game Nerdz::BUSBSRPM22B": {
     "currency": "USD",
     "in_stock": false,
-    "name": "Palworld Official Card Game: Shadowbeak - Seed of Despair - Playmat (PREORDER)",
+    "name": "Palworld Official Card Game: Shadowbeak - Seed of Despair - Playmat",
     "price": 44.47,
     "url": "https://www.gamenerdz.com/palworld/",
     "usd_price": 44.47
@@ -218,18 +218,18 @@
   "Game Nerdz::BUSBSSB01A": {
     "currency": "USD",
     "in_stock": false,
-    "name": "Palworld Official Card Game: Petallia - Sweet Blessings - Storage Box (PREORDER)",
-    "price": 16.47,
+    "name": "Palworld Official Card Game: Petallia - Sweet Blessings - Storage Box",
+    "price": 17.47,
     "url": "https://www.gamenerdz.com/palworld/",
-    "usd_price": 16.47
+    "usd_price": 17.47
   },
   "Game Nerdz::BUSBSSB01B": {
     "currency": "USD",
     "in_stock": false,
-    "name": "Palworld Official Card Game: Shadowbeak - Seed of Despair - Storage Box (PREORDER)",
-    "price": 16.47,
+    "name": "Palworld Official Card Game: Shadowbeak - Seed of Despair - Storage Box",
+    "price": 17.47,
     "url": "https://www.gamenerdz.com/palworld/",
-    "usd_price": 16.47
+    "usd_price": 17.47
   },
   "Game Nerdz::BUSPOCGBP01": {
     "currency": "USD",
@@ -1009,7 +1009,7 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Booster Box (12x Packs)",
     "price": "99.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-booster-box-12x-packs",
-    "usd_price": "135.00"
+    "usd_price": "136.00"
   },
   "The Card Vault::9161468379374-47666918392046": {
     "currency": "GBP",
@@ -1025,7 +1025,7 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Display Case (12x Booster Boxes)",
     "price": "544.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-display-case-12x-booster-boxes",
-    "usd_price": "736.00"
+    "usd_price": "737.00"
   },
   "The Card Vault::9161470279918-47666928353518": {
     "currency": "GBP",
@@ -1057,7 +1057,7 @@
     "name": "Palworld Official Card Game - Set 02 - Legends Awaken - Display Case (12x Booster Boxes)",
     "price": "547.15",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-legends-awaken-display-case-12x-booster-boxes",
-    "usd_price": "739.00"
+    "usd_price": "740.00"
   },
   "The Card Vault::9320379220206-48165401919726": {
     "currency": "GBP",
