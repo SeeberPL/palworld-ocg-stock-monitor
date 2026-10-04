@@ -201,7 +201,7 @@
   },
   "Game Nerdz::BUSBSRPM22A": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Petallia - Sweet Blessings - Playmat",
     "price": 44.47,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -217,7 +217,7 @@
   },
   "Game Nerdz::BUSBSSB01A": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Petallia - Sweet Blessings - Storage Box",
     "price": 17.47,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -225,7 +225,7 @@
   },
   "Game Nerdz::BUSBSSB01B": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Shadowbeak - Seed of Despair - Storage Box",
     "price": 17.47,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -1041,7 +1041,7 @@
   },
   "The Card Vault::9161474506990-47666946441454": {
     "currency": "GBP",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Green-Purple Trial Deck",
     "price": "22.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-green-purple-trial-deck",
@@ -1077,7 +1077,7 @@
     "name": "Palworld Official Card Game - Sleeve & Card Set - Vol. 1",
     "price": "26.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-sleeve-card-set-vol-1",
-    "usd_price": "37.00"
+    "usd_price": "26.95"
   },
   "The Card Vault::9510237208814-49566057562350": {
     "currency": "GBP",
