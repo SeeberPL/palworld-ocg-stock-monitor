@@ -420,16 +420,20 @@
     "url": "https://gamersgetawaykc.com/products/palworld-dawn-of-palpagos-1st-edition-booster-box"
   },
   "Gamers Getaway KC::10499227353376-52041122873632": {
-    "in_stock": false,
+    "currency": "USD",
+    "in_stock": true,
     "name": "Palworld: Dawn of Palpagos 1st Edition Trial Deck (Red-Blue)",
-    "price": "39.99",
-    "url": "https://gamersgetawaykc.com/products/palworld-dawn-of-palpagos-1st-edition-trial-deck"
+    "price": "29.99",
+    "url": "https://gamersgetawaykc.com/products/palworld-dawn-of-palpagos-1st-edition-trial-deck",
+    "usd_price": "29.99"
   },
   "Gamers Getaway KC::10499227353376-52041122906400": {
-    "in_stock": false,
+    "currency": "USD",
+    "in_stock": true,
     "name": "Palworld: Dawn of Palpagos 1st Edition Trial Deck (Green-Purple)",
-    "price": "39.99",
-    "url": "https://gamersgetawaykc.com/products/palworld-dawn-of-palpagos-1st-edition-trial-deck"
+    "price": "29.99",
+    "url": "https://gamersgetawaykc.com/products/palworld-dawn-of-palpagos-1st-edition-trial-deck",
+    "usd_price": "29.99"
   },
   "Gamers Getaway KC::10536133394720-52164216258848": {
     "in_stock": false,
