@@ -129,7 +129,7 @@
   },
   "Flipside Gaming::8554595057698-46064434610210": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Legends Awaken (BP02) Booster Box",
     "price": "99.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-legends-awaken-bp02-booster-box",
@@ -137,7 +137,7 @@
   },
   "Flipside Gaming::8554595090466-46064434642978": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Legends Awaken (BP02) [x12] Booster Case",
     "price": "1184.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-legends-awaken-bp02-x12-booster-case",
