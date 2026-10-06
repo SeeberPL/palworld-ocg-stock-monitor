@@ -505,7 +505,7 @@
   },
   "Gamers Guild AZ::14895489450347-52895359762795": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld OCG: Dawn of Palpagos Trial Deck - Green/Purple",
     "price": "21.99",
     "url": "https://gamersguildaz.com/products/palworld-ocg-dawn-of-palpagos-trial-deck-green-purple",
@@ -1129,7 +1129,7 @@
   },
   "Topspot Cards::9242883522698-49879043047562": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Preorder: TD03 Eternal Ascent Red\u30fbGreen Trial Deck (EN)",
     "price": "20.00",
     "url": "https://topspot.cards/products/palworld-td03-eternal-ascent-red-green-trial-deck-en",
