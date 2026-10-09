@@ -737,51 +737,51 @@
   },
   "Lumius Inc::10277198135544-50186676666616": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "PRE-ORDER Palworld Official Card Game \"Eternal Ascent Red Green\" TD03 Trial Deck (Trial Deck)",
-    "price": "21.99",
+    "price": "24.99",
     "url": "https://lumiusinc.com/products/palworld-official-card-game-eternal-ascent-red-green-td03-trial-deck",
-    "usd_price": "21.99"
+    "usd_price": "24.99"
   },
   "Lumius Inc::10277198135544-50186676699384": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "PRE-ORDER Palworld Official Card Game \"Eternal Ascent Red Green\" TD03 Trial Deck (Display of 6 Trial Decks)",
-    "price": "129.99",
+    "price": "149.99",
     "url": "https://lumiusinc.com/products/palworld-official-card-game-eternal-ascent-red-green-td03-trial-deck",
-    "usd_price": "129.99"
+    "usd_price": "149.99"
   },
   "Lumius Inc::10277198135544-50186676732152": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "PRE-ORDER Palworld Official Card Game \"Eternal Ascent Red Green\" TD03 Trial Deck (Case of 8 Displays)",
-    "price": "999.99",
+    "price": "1199.99",
     "url": "https://lumiusinc.com/products/palworld-official-card-game-eternal-ascent-red-green-td03-trial-deck",
-    "usd_price": "999.99"
+    "usd_price": "1199.99"
   },
   "Lumius Inc::10277200265464-50186679845112": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "PRE-ORDER Palworld Official Card Game \"Eternal Ascent Blue Purple\" TD04 Trial Deck (Trial Deck)",
-    "price": "21.99",
+    "price": "24.99",
     "url": "https://lumiusinc.com/products/palworld-official-card-game-eternal-ascent-blue-purple-td04-trial-deck",
-    "usd_price": "21.99"
+    "usd_price": "24.99"
   },
   "Lumius Inc::10277200265464-50186679877880": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "PRE-ORDER Palworld Official Card Game \"Eternal Ascent Blue Purple\" TD04 Trial Deck (Display of 6 Trial Decks)",
-    "price": "129.99",
+    "price": "149.99",
     "url": "https://lumiusinc.com/products/palworld-official-card-game-eternal-ascent-blue-purple-td04-trial-deck",
-    "usd_price": "129.99"
+    "usd_price": "149.99"
   },
   "Lumius Inc::10277200265464-50186679910648": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "PRE-ORDER Palworld Official Card Game \"Eternal Ascent Blue Purple\" TD04 Trial Deck (Case of 8 Displays)",
-    "price": "999.99",
+    "price": "1199.99",
     "url": "https://lumiusinc.com/products/palworld-official-card-game-eternal-ascent-blue-purple-td04-trial-deck",
-    "usd_price": "999.99"
+    "usd_price": "1199.99"
   },
   "Lumius Inc::10315043930360-50476383568120": {
     "currency": "USD",
@@ -1021,7 +1021,7 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Booster Pack",
     "price": "3.75",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-booster-pack",
-    "usd_price": "3.75"
+    "usd_price": "6.00"
   },
   "The Card Vault::9161469034734-47666922062062": {
     "currency": "GBP",
@@ -1037,11 +1037,11 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Red-Blue Trial Deck",
     "price": "29.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-red-and-blue-trial-deck",
-    "usd_price": "29.95"
+    "usd_price": "41.00"
   },
   "The Card Vault::9161474506990-47666946441454": {
     "currency": "GBP",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Green-Purple Trial Deck",
     "price": "22.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-green-purple-trial-deck",
