@@ -113,7 +113,7 @@
   },
   "Flipside Gaming::8241132503074-44846002962466": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos - Blue-Red Trial Deck",
     "price": "31.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-blue-red-trial-deck",
@@ -1094,6 +1094,14 @@
     "price": "17.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-eternal-ascent-red-green-trial-deck",
     "usd_price": "25.00"
+  },
+  "The Card Vault::9541641175278-49660236955886": {
+    "currency": "GBP",
+    "in_stock": false,
+    "name": "Palworld Official Card Game - Set 03 - Eternal Ascent - Booster Box (12x Packs)",
+    "price": "45.55",
+    "url": "https://thecardvault.co.uk/products/palworld-official-card-game-set-03-eternal-ascent-booster-box-12x-packs",
+    "usd_price": "62.00"
   },
   "The Card Vault::9541663391982-49660268118254": {
     "currency": "GBP",
