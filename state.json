@@ -161,7 +161,7 @@
   },
   "Flipside Gaming::8608131088418-46551152295970": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Eternal Ascent [Blue-Purple] [x6] Trial Deck Display",
     "price": "109.95",
     "url": "https://flipsidegaming.com/products/palworld-tcg-eternal-ascent-blue-purple-x6-trial-deck-display",
@@ -1121,7 +1121,7 @@
   },
   "Topspot Cards::8927628066954-47842917154954": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Figure Collection vol. 1",
     "price": "10.00",
     "url": "https://topspot.cards/products/palworld-figure-collection-vol-1",
