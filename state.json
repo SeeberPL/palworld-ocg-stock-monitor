@@ -161,7 +161,7 @@
   },
   "Flipside Gaming::8608131088418-46551152295970": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Eternal Ascent [Blue-Purple] [x6] Trial Deck Display",
     "price": "109.95",
     "url": "https://flipsidegaming.com/products/palworld-tcg-eternal-ascent-blue-purple-x6-trial-deck-display",
@@ -661,7 +661,7 @@
     "name": "Palworld Official Card Game - Set 02 - Legends Awaken - Booster Box (12x Packs)",
     "price": "64.99",
     "url": "https://kongscards.co.uk/products/palworld-official-card-game-dawn-of-palpagos-booster-box-12-packs-copy",
-    "usd_price": "92.00"
+    "usd_price": "93.00"
   },
   "Lazarus Games::15625216950432-56806255853728": {
     "currency": "USD",
@@ -1118,6 +1118,14 @@
     "price": "547.15",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-set-03-eternal-ascent-display-case-12x-booster-boxes",
     "usd_price": "738.00"
+  },
+  "Topspot Cards::8927628066954-47842917154954": {
+    "currency": "USD",
+    "in_stock": true,
+    "name": "Palworld Figure Collection vol. 1",
+    "price": "10.00",
+    "url": "https://topspot.cards/products/palworld-figure-collection-vol-1",
+    "usd_price": "10.00"
   },
   "Topspot Cards::9109533098122-49543310377098": {
     "currency": "USD",
