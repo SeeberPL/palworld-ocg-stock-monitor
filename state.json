@@ -161,7 +161,7 @@
   },
   "Flipside Gaming::8608131088418-46551152295970": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Eternal Ascent [Blue-Purple] [x6] Trial Deck Display",
     "price": "109.95",
     "url": "https://flipsidegaming.com/products/palworld-tcg-eternal-ascent-blue-purple-x6-trial-deck-display",
@@ -1122,7 +1122,7 @@
   "Topspot Cards::9109533098122-49543310377098": {
     "currency": "USD",
     "in_stock": false,
-    "name": "Preorder: BP02 Legends Awaken Booster Case (EN)",
+    "name": "Preorder: BP02 Legends Awaken Booster Case (1st Edition)",
     "price": "576.00",
     "url": "https://topspot.cards/products/palworld-bp02-legends-awaken-booster-case-en",
     "usd_price": "576.00"
