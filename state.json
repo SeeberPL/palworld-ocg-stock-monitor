@@ -145,7 +145,7 @@
   },
   "Flipside Gaming::8578589622306-46322567348258": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Sleeve & Card Set Vol. 1",
     "price": "27.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-sleeve-card-set-vol-1",
@@ -153,7 +153,7 @@
   },
   "Flipside Gaming::8578598371362-46322969018402": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Sleeve & Card Set Vol. 1 [x6] Box Display",
     "price": "154.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-sleeve-card-set-vol-1-x6-box-display",
