@@ -649,7 +649,7 @@
   },
   "Gamers Guild AZ::15246204371307-53868211962219": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Dawn of Palpagos - Booster Display Case (2nd Edition) (Pre-Order)",
     "price": "799.99",
     "url": "https://gamersguildaz.com/products/palworld-ocg-dawn-of-palpagos-booster-display-case-2nd-edition",
@@ -661,7 +661,7 @@
     "name": "Palworld Official Card Game - Dawn of Palpagos - Booster Box (12 Packs)",
     "price": "79.99",
     "url": "https://kongscards.co.uk/products/palworld-official-card-game-dawn-of-palpagos-booster-box-12-packs",
-    "usd_price": "114.00"
+    "usd_price": "113.00"
   },
   "Kongs Cards::15984306880893-58494540874109": {
     "currency": "GBP",
@@ -947,9 +947,9 @@
     "currency": "USD",
     "in_stock": false,
     "name": "Palworld OCG: Sleeve & Card Set Vol.1 (Preorder)",
-    "price": "19.99",
+    "price": "34.99",
     "url": "https://www.miniaturemarket.com/Palworld-OCG-Sleeve-Card-Set-Vol.1-Preorder/BUSPOCGSS01",
-    "usd_price": "19.99"
+    "usd_price": "34.99"
   },
   "Moonlight Collectibles::9418630725884-50919000899836": {
     "currency": "USD",
@@ -1045,7 +1045,7 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Display Case (12x Booster Boxes)",
     "price": "544.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-display-case-12x-booster-boxes",
-    "usd_price": "734.00"
+    "usd_price": "733.00"
   },
   "The Card Vault::9161470279918-47666928353518": {
     "currency": "GBP",
@@ -1125,7 +1125,7 @@
     "name": "Palworld Official Card Game - Set 03 - Eternal Ascent - Display Case (12x Booster Boxes)",
     "price": "547.15",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-set-03-eternal-ascent-display-case-12x-booster-boxes",
-    "usd_price": "737.00"
+    "usd_price": "735.00"
   },
   "Topspot Cards::8927628066954-47842917154954": {
     "currency": "USD",
