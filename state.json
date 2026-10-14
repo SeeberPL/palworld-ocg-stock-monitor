@@ -145,7 +145,7 @@
   },
   "Flipside Gaming::8578589622306-46322567348258": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Sleeve & Card Set Vol. 1",
     "price": "27.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-sleeve-card-set-vol-1",
@@ -153,7 +153,7 @@
   },
   "Flipside Gaming::8578598371362-46322969018402": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Sleeve & Card Set Vol. 1 [x6] Box Display",
     "price": "154.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-sleeve-card-set-vol-1-x6-box-display",
@@ -1061,7 +1061,7 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Display Case (12x Booster Boxes)",
     "price": "544.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-display-case-12x-booster-boxes",
-    "usd_price": "732.00"
+    "usd_price": "731.00"
   },
   "The Card Vault::9161470279918-47666928353518": {
     "currency": "GBP",
@@ -1141,7 +1141,7 @@
     "name": "Palworld Official Card Game - Set 03 - Eternal Ascent - Display Case (12x Booster Boxes)",
     "price": "547.15",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-set-03-eternal-ascent-display-case-12x-booster-boxes",
-    "usd_price": "735.00"
+    "usd_price": "734.00"
   },
   "Topspot Cards::8927628066954-47842917154954": {
     "currency": "USD",
