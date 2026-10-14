@@ -161,7 +161,7 @@
   },
   "Flipside Gaming::8608131088418-46551152295970": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Eternal Ascent [Blue-Purple] [x6] Trial Deck Display",
     "price": "109.95",
     "url": "https://flipsidegaming.com/products/palworld-tcg-eternal-ascent-blue-purple-x6-trial-deck-display",
@@ -1153,11 +1153,11 @@
   },
   "Topspot Cards::9109561344138-49543352582282": {
     "currency": "USD",
-    "in_stock": false,
-    "name": "[LIMIT 4] Preorder: POCGe-SS01 Sleeve & Card Set Vol. 1 (EN)",
-    "price": "25.00",
+    "in_stock": true,
+    "name": "[LIMIT 2] Preorder: POCGe-SS01 Sleeve & Card Set Vol. 1 (EN)",
+    "price": "35.00",
     "url": "https://topspot.cards/products/palworld-pocge-ss01-sleeve-card-set-vol-1-en",
-    "usd_price": "25.00"
+    "usd_price": "35.00"
   },
   "Topspot Cards::9242882244746-49879041638538": {
     "currency": "USD",
