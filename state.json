@@ -681,19 +681,19 @@
   },
   "Lazarus Games::15625216983200-56806255886496": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Dawn of Palpagos Booster Display (12 Packs)",
-    "price": "49.99",
+    "price": "94.99",
     "url": "https://lazarus-games.com/products/palworld-ocg-dawn-of-palpagos-booster-display-12-packs",
-    "usd_price": "49.99"
+    "usd_price": "94.99"
   },
   "Lazarus Games::15625217015968-56806255919264": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Dawn of Palpagos Booster Pack",
-    "price": "4.50",
+    "price": "8.95",
     "url": "https://lazarus-games.com/products/palworld-ocg-dawn-of-palpagos-booster-pack",
-    "usd_price": "4.50"
+    "usd_price": "8.95"
   },
   "Lazarus Games::15625217048736-56806255952032": {
     "currency": "USD",
