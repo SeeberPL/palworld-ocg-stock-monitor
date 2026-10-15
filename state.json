@@ -1081,19 +1081,19 @@
   },
   "The Card Vault::9320369488110-48165374656750": {
     "currency": "GBP",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game - Set 02 - Legends Awaken - Booster Box (12x Packs)",
-    "price": "45.55",
+    "price": "59.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-legends-awaken-booster-box-12x-packs",
-    "usd_price": "62.00"
+    "usd_price": "82.00"
   },
   "The Card Vault::9320377385198-48165397168366": {
     "currency": "GBP",
     "in_stock": true,
     "name": "Palworld Official Card Game - Set 02 - Legends Awaken - Display Case (12x Booster Boxes)",
-    "price": "749.95",
+    "price": "699.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-legends-awaken-display-case-12x-booster-boxes",
-    "usd_price": "1015.00"
+    "usd_price": "947.00"
   },
   "The Card Vault::9320379220206-48165401919726": {
     "currency": "GBP",
