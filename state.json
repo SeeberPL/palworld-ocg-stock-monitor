@@ -113,7 +113,7 @@
   },
   "Flipside Gaming::8241132503074-44846002962466": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Dawn of Palpagos - Blue-Red Trial Deck",
     "price": "31.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-blue-red-trial-deck",
@@ -121,7 +121,7 @@
   },
   "Flipside Gaming::8241132568610-44846003028002": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Dawn of Palpagos - Blue-Red [x6] Trial Deck Display",
     "price": "189.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-blue-red-x6-trial-deck-display",
@@ -158,6 +158,22 @@
     "price": "154.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-sleeve-card-set-vol-1-x6-box-display",
     "usd_price": "154.99"
+  },
+  "Flipside Gaming::8608130990114-46551152164898": {
+    "currency": "USD",
+    "in_stock": true,
+    "name": "Palworld TCG: Eternal Ascent [Red-Green] Trial Deck",
+    "price": "19.95",
+    "url": "https://flipsidegaming.com/products/palworld-tcg-eternal-ascent-red-green-trial-deck",
+    "usd_price": "19.95"
+  },
+  "Flipside Gaming::8608131022882-46551152197666": {
+    "currency": "USD",
+    "in_stock": true,
+    "name": "Palworld TCG: Eternal Ascent [Red-Green] [x6] Trial Deck Display",
+    "price": "109.95",
+    "url": "https://flipsidegaming.com/products/palworld-tcg-eternal-ascent-red-green-x6-trial-deck-display",
+    "usd_price": "109.95"
   },
   "Flipside Gaming::8608131088418-46551152295970": {
     "currency": "USD",
@@ -655,6 +671,14 @@
     "url": "https://gamersguildaz.com/products/palworld-ocg-dawn-of-palpagos-booster-display-case-2nd-edition",
     "usd_price": "1245.48"
   },
+  "Gamers Guild AZ::15270583468395-54000221192555": {
+    "currency": "USD",
+    "in_stock": false,
+    "name": "Palworld OCG: Figure Blind Box",
+    "price": "7.14",
+    "url": "https://gamersguildaz.com/products/palworld-ocg-figure-blind-box",
+    "usd_price": "7.14"
+  },
   "Kongs Cards::15959801266557-58393179128189": {
     "currency": "GBP",
     "in_stock": false,
@@ -1061,7 +1085,7 @@
     "name": "Palworld Official Card Game - Set 01 - Dawn of Palpagos - Display Case (12x Booster Boxes)",
     "price": "544.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-dawn-of-palpagos-display-case-12x-booster-boxes",
-    "usd_price": "737.00"
+    "usd_price": "740.00"
   },
   "The Card Vault::9161470279918-47666928353518": {
     "currency": "GBP",
