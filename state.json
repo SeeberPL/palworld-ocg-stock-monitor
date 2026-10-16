@@ -745,7 +745,7 @@
   },
   "Lazarus Games::15881964093600-58942411866272": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld OCG: Eternal Ascent Booster Display (12 Packs) (presale)",
     "price": "64.95",
     "url": "https://lazarus-games.com/products/palworld-ocg-eternal-ascent-booster-display-12-packs",
@@ -1113,7 +1113,7 @@
   },
   "The Card Vault::9320377385198-48165397168366": {
     "currency": "GBP",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld Official Card Game - Set 02 - Legends Awaken - Display Case (12x Booster Boxes)",
     "price": "699.95",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-legends-awaken-display-case-12x-booster-boxes",
@@ -1157,7 +1157,7 @@
     "name": "Palworld Official Card Game - Set 03 - Eternal Ascent - Booster Box (12x Packs)",
     "price": "45.55",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-set-03-eternal-ascent-booster-box-12x-packs",
-    "usd_price": "62.00"
+    "usd_price": "45.55"
   },
   "The Card Vault::9541663391982-49660268118254": {
     "currency": "GBP",
@@ -1165,7 +1165,7 @@
     "name": "Palworld Official Card Game - Set 03 - Eternal Ascent - Display Case (12x Booster Boxes)",
     "price": "547.15",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-set-03-eternal-ascent-display-case-12x-booster-boxes",
-    "usd_price": "743.00"
+    "usd_price": "744.00"
   },
   "Topspot Cards::8927628066954-47842917154954": {
     "currency": "USD",
