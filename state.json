@@ -113,7 +113,7 @@
   },
   "Flipside Gaming::8241132503074-44846002962466": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos - Blue-Red Trial Deck",
     "price": "31.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-blue-red-trial-deck",
@@ -121,7 +121,7 @@
   },
   "Flipside Gaming::8241132568610-44846003028002": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos - Blue-Red [x6] Trial Deck Display",
     "price": "189.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-blue-red-x6-trial-deck-display",
@@ -161,7 +161,7 @@
   },
   "Flipside Gaming::8608130990114-46551152164898": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Eternal Ascent [Red-Green] Trial Deck",
     "price": "19.95",
     "url": "https://flipsidegaming.com/products/palworld-tcg-eternal-ascent-red-green-trial-deck",
@@ -169,7 +169,7 @@
   },
   "Flipside Gaming::8608131022882-46551152197666": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Eternal Ascent [Red-Green] [x6] Trial Deck Display",
     "price": "109.95",
     "url": "https://flipsidegaming.com/products/palworld-tcg-eternal-ascent-red-green-x6-trial-deck-display",
@@ -177,7 +177,7 @@
   },
   "Flipside Gaming::8608131088418-46551152295970": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Eternal Ascent [Blue-Purple] [x6] Trial Deck Display",
     "price": "109.95",
     "url": "https://flipsidegaming.com/products/palworld-tcg-eternal-ascent-blue-purple-x6-trial-deck-display",
