@@ -953,6 +953,22 @@
     "url": "https://lumiusinc.com/products/pre-order-palworld-official-card-game-sleeve-card-set-vol-1",
     "usd_price": "559.99"
   },
+  "Miniature Market::palworld-ocg:-eternal-ascent---booster-box-(12)-(preorder)": {
+    "currency": "USD",
+    "in_stock": false,
+    "name": "Palworld OCG: Eternal Ascent - Booster Box (12) (Preorder)",
+    "price": "54.99",
+    "url": "https://www.miniaturemarket.com/Palworld-OCG-Eternal-Ascent-Booster-Box-12-Preorder/BUSPOCGBP03-BOX",
+    "usd_price": "54.99"
+  },
+  "Miniature Market::palworld-ocg:-eternal-ascent---booster-pack-(preorder)": {
+    "currency": "USD",
+    "in_stock": false,
+    "name": "Palworld OCG: Eternal Ascent - Booster Pack (Preorder)",
+    "price": "4.79",
+    "url": "https://www.miniaturemarket.com/Palworld-OCG-Eternal-Ascent-Booster-Pack-Preorder/BUSPOCGBP03-PACK",
+    "usd_price": "4.79"
+  },
   "Miniature Market::palworld-ocg:-eternal-ascent-trial-deck---blue-&-purple-(preorder)": {
     "currency": "USD",
     "in_stock": true,
@@ -987,7 +1003,7 @@
   },
   "Miniature Market::palworld-ocg:-sleeve-&-card-set-vol.1-(new-arrival)": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Sleeve & Card Set Vol.1 (New Arrival)",
     "price": "34.99",
     "url": "https://www.miniaturemarket.com/Palworld-OCG-Sleeve-Card-Set-Vol.1-New-Arrival/BUSPOCGSS01",
