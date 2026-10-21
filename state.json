@@ -987,7 +987,7 @@
   },
   "Miniature Market::palworld-ocg:-legends-awaken---booster-box-(12)-(preorder)": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Legends Awaken - Booster Box (12) (Preorder)",
     "price": "89.99",
     "url": "https://www.miniaturemarket.com/Palworld-OCG-Legends-Awaken-Booster-Box-12-Preorder/BUSPOCGBP02-BOX",
@@ -995,7 +995,7 @@
   },
   "Miniature Market::palworld-ocg:-legends-awaken---booster-pack-(preorder)": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Legends Awaken - Booster Pack (Preorder)",
     "price": "7.79",
     "url": "https://www.miniaturemarket.com/Palworld-OCG-Legends-Awaken-Booster-Pack-Preorder/BUSPOCGBP02-PACK",
