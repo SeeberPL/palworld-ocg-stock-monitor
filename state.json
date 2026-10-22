@@ -391,7 +391,7 @@
   },
   "Game Nerdz::BUSPOCGSS01": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Sleeve & Card Set Vol.1",
     "price": 44.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -415,7 +415,7 @@
   },
   "Game Nerdz::BUSPOCGTD03": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Eternal Ascent - Red/Green - Trial Deck (PREORDER)",
     "price": 19.97,
     "url": "https://www.gamenerdz.com/palworld/",
@@ -423,7 +423,7 @@
   },
   "Game Nerdz::BUSPOCGTD04": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld Official Card Game: Eternal Ascent - Blue/Purple - Trial Deck (PREORDER)",
     "price": 19.97,
     "url": "https://www.gamenerdz.com/palworld/",
