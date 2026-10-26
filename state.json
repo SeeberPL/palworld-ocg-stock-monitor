@@ -709,17 +709,17 @@
     "currency": "USD",
     "in_stock": true,
     "name": "Palworld OCG: Dawn of Palpagos Booster Display (12 Packs)",
-    "price": "99.99",
+    "price": "90.99",
     "url": "https://lazarus-games.com/products/palworld-ocg-dawn-of-palpagos-booster-display-12-packs",
-    "usd_price": "99.99"
+    "usd_price": "90.99"
   },
   "Lazarus Games::15625217015968-56806255919264": {
     "currency": "USD",
     "in_stock": true,
     "name": "Palworld OCG: Dawn of Palpagos Booster Pack",
-    "price": "8.95",
+    "price": "7.95",
     "url": "https://lazarus-games.com/products/palworld-ocg-dawn-of-palpagos-booster-pack",
-    "usd_price": "8.95"
+    "usd_price": "7.95"
   },
   "Lazarus Games::15625217048736-56806255952032": {
     "currency": "USD",
@@ -749,9 +749,9 @@
     "currency": "USD",
     "in_stock": true,
     "name": "Palworld OCG: Eternal Ascent Booster Display (12 Packs) (presale)",
-    "price": "64.95",
+    "price": "79.95",
     "url": "https://lazarus-games.com/products/palworld-ocg-eternal-ascent-booster-display-12-packs",
-    "usd_price": "64.95"
+    "usd_price": "79.95"
   },
   "Lazarus Games::15881964159136-58942411931808": {
     "currency": "USD",
@@ -779,11 +779,11 @@
   },
   "Lazarus Games::15933841604768-67771856584864": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld OCG: Legends Awaken Booster Box (BP02)",
-    "price": "84.99",
+    "price": "78.95",
     "url": "https://lazarus-games.com/products/palworld-ocg-legends-awaken-booster-box-bp02",
-    "usd_price": "84.99"
+    "usd_price": "78.95"
   },
   "Lumius Inc::10277198135544-50186676666616": {
     "currency": "USD",
