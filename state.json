@@ -89,7 +89,7 @@
   },
   "Flipside Gaming::8241132404770-44846002765858": {
     "currency": "USD",
-    "in_stock": false,
+    "in_stock": true,
     "name": "Palworld TCG: Dawn of Palpagos  [x12] Booster Case",
     "price": "1999.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-x12-booster-case",
@@ -97,7 +97,7 @@
   },
   "Flipside Gaming::8241132437538-44846002896930": {
     "currency": "USD",
-    "in_stock": true,
+    "in_stock": false,
     "name": "Palworld TCG: Dawn of Palpagos - Green-Purple Trial Deck",
     "price": "31.99",
     "url": "https://flipsidegaming.com/products/palworld-tcg-dawn-of-palpagos-green-purple-trial-deck",
@@ -1207,7 +1207,7 @@
     "name": "Palworld Official Card Game - Set 03 - Eternal Ascent - Display Case (12x Booster Boxes)",
     "price": "547.15",
     "url": "https://thecardvault.co.uk/products/palworld-official-card-game-set-03-eternal-ascent-display-case-12x-booster-boxes",
-    "usd_price": "743.00"
+    "usd_price": "744.00"
   },
   "Topspot Cards::8927628066954-47842917154954": {
     "currency": "USD",
